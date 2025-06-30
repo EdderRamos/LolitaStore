@@ -13,7 +13,11 @@ public class ClienteDAO {
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
-    
+
+        // Lista enlazada de clientes (accesible desde otras clases)
+    public static ListaClientes listaEnlazada = new ListaClientes();
+
+    // REGISTRAR CLIENTE EN LA BASE DE DATOS
     public boolean RegistrarCliente(Cliente cl){
         String sql = "INSERT INTO clientes (dni, nombre, telefono, direccion, razon) VALUES (?,?,?,?,?)";
         try {
@@ -37,9 +41,10 @@ public class ClienteDAO {
             }
         }
     }
-
-    public List ListarCliente(){
+ // LISTAR CLIENTES y llenar la lista enlazada
+    public List<Cliente> ListarCliente() {
         List<Cliente> ListaCl = new ArrayList();
+        listaEnlazada.reiniciar(); // Reinicia lista para evitar duplicados
         String sql = "SELECT * FROM clientes";
         try {
             con = cn.getConnection();
@@ -54,6 +59,7 @@ public class ClienteDAO {
                 cl.setDireccion(rs.getString("direccion"));
                 cl.setRazon(rs.getString("razon"));
                 ListaCl.add(cl);
+                listaEnlazada.agregar(cl);     // Para lista enlazada
             }
         } catch(SQLException e){
             System.out.println(e.toString());
