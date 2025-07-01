@@ -3,15 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Usuario/Documents/TiendaLolita/src/Vista/Sistema.java</file>
-            <file>file:/C:/Users/Usuario/Documents/TiendaLolita/src/Modelo/ConexionBd.java</file>
-            <file>file:/C:/Users/Usuario/Documents/TiendaLolita/src/tiendalolita/TiendaLolita.java</file>
-            <file>file:/C:/Users/Usuario/Documents/TiendaLolita/src/Modelo/VentaDAO.java</file>
-            <file>file:/C:/Users/Usuario/Documents/TiendaLolita/src/Modelo/ProductosDAO.java</file>
-            <file>file:/C:/Users/Usuario/Documents/TiendaLolita/src/Vista/Registro.java</file>
-            <file>file:/C:/Users/Usuario/Documents/TiendaLolita/src/Modelo/Config.java</file>
-            <file>file:/C:/Users/Usuario/Documents/TiendaLolita/src/Vista/Login.java</file>
-            <file>file:/C:/Users/Usuario/Documents/TiendaLolita/src/Modelo/ClienteDAO.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Vista/Login.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Vista/Registro.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Vista/Sistema.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Modelo/ConexionBd.java</file>
         </group>
     </open-files>
 </project-private>
