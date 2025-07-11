@@ -15,6 +15,7 @@ import Modelo.ProductosDAO;
 import Modelo.Proveedor;
 import Modelo.ProveedorDAO;
 import Modelo.Venta;
+import Modelo.VentaCola;
 import Modelo.VentaDAO;
 import Modelo.login;
 import Reportes.Excel;
@@ -170,16 +171,10 @@ public class Sistema extends javax.swing.JFrame {
     }
 
     public void ListarVentas() {
-        List<Venta> ListarVenta = vDao.ListarVentas();
+        VentaCola ventaCola = vDao.ListarVentas(); 
         modelo = (DefaultTableModel) TableVentas.getModel();
-        Object[] ob = new Object[4];
-        for (int i = 0; i < ListarVenta.size(); i++) {
-            ob[0] = ListarVenta.get(i).getId();
-            ob[1] = ListarVenta.get(i).getCliente();
-            ob[2] = ListarVenta.get(i).getVendedor();
-            ob[3] = ListarVenta.get(i).getTotal();
-            modelo.addRow(ob);
-        }
+        ventaCola.mostrar(modelo);
+
         TableVentas.setModel(modelo);
     }
 
