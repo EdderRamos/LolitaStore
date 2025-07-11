@@ -1,16 +1,16 @@
-# Compiled class files
+# Ignorar los archivos compilados
 *.class
 
-# Log files
+# Ignorar los archivos de log
 *.log
 
-# BlueJ files
+# Archivos específicos de BlueJ
 *.ctxt
 
-# Mobile Tools for Java (J2ME)
+# Archivos de herramientas móviles para Java (J2ME)
 .mtj.tmp/
 
-# NetBeans-specific folders
+# Archivos específicos de NetBeans
 nbproject/private/
 build/
 nbbuild/
@@ -18,28 +18,25 @@ dist/
 nbdist/
 .nb-gradle/
 
-# Java backup files
+# Archivos de respaldo de Java
 *.bak
 *~
 
-# Maven
+# Archivos de Maven
 target/
 
-# Gradle
+# Archivos de Gradle
 .gradle/
-build/
 
-# Eclipse (por si lo abres allí)
+# Archivos de Eclipse (si abres el proyecto allí)
 .classpath
 .project
 .settings/
 
-# IDE general
+# Archivos generales de IDE
 .idea/
 *.iml
 
-# OS-specific files
+# Archivos específicos de sistema operativo
 .DS_Store
 Thumbs.db
-
-build
