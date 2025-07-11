@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Usuario/Documents/TiendaLolita/src/Vista/Sistema.java</file>
-            <file>file:/C:/Users/Usuario/Documents/TiendaLolita/src/Modelo/ConexionBd.java</file>
-            <file>file:/C:/Users/Usuario/Documents/TiendaLolita/src/tiendalolita/TiendaLolita.java</file>
-            <file>file:/C:/Users/Usuario/Documents/TiendaLolita/src/Modelo/VentaDAO.java</file>
-            <file>file:/C:/Users/Usuario/Documents/TiendaLolita/src/Modelo/ProductosDAO.java</file>
-            <file>file:/C:/Users/Usuario/Documents/TiendaLolita/src/Vista/Registro.java</file>
-            <file>file:/C:/Users/Usuario/Documents/TiendaLolita/src/Modelo/Config.java</file>
-            <file>file:/C:/Users/Usuario/Documents/TiendaLolita/src/Vista/Login.java</file>
-            <file>file:/C:/Users/Usuario/Documents/TiendaLolita/src/Modelo/ClienteDAO.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

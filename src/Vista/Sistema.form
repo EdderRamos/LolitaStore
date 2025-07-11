@@ -1157,7 +1157,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btnGuardarPro" min="-2" pref="101" max="-2" attributes="0"/>
@@ -1165,6 +1165,12 @@
                               <Component id="btnActualizarPro" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnEliminarPro" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="btnNuevoPro" min="-2" pref="111" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnExcelPro" min="-2" pref="111" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1175,26 +1181,22 @@
                                   <Component id="jLabel26" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtPrecioPro" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtCantPro" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtDesPro" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtPrecioPro" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtCantPro" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtDesPro" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Component id="cbxProveedorPro" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="txtCodigoPro" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="txtIdProducto" min="-2" pref="5" max="-2" attributes="0"/>
+                                      <Component id="btnBuscarProducto" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="cbxProveedorPro" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                              <Component id="btnNuevoPro" min="-2" pref="111" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnExcelPro" min="-2" pref="111" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane4" min="-2" pref="527" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
@@ -1206,10 +1208,12 @@
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtCodigoPro" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtIdProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnBuscarProducto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtCodigoPro" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1442,7 +1446,16 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExcelProActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtIdProducto">
+            <Component class="javax.swing.JButton" name="btnBuscarProducto">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/buscar.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Buscar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarProductoActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

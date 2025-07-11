@@ -1,0 +1,42 @@
+# Ignorar los archivos compilados
+*.class
+
+# Ignorar los archivos de log
+*.log
+
+# Archivos específicos de BlueJ
+*.ctxt
+
+# Archivos de herramientas móviles para Java (J2ME)
+.mtj.tmp/
+
+# Archivos específicos de NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# Archivos de respaldo de Java
+*.bak
+*~
+
+# Archivos de Maven
+target/
+
+# Archivos de Gradle
+.gradle/
+
+# Archivos de Eclipse (si abres el proyecto allí)
+.classpath
+.project
+.settings/
+
+# Archivos generales de IDE
+.idea/
+*.iml
+
+# Archivos específicos de sistema operativo
+.DS_Store
+Thumbs.db
