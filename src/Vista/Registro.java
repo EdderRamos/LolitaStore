@@ -24,7 +24,7 @@ public class Registro extends javax.swing.JFrame {
             lg.setCorreo(correo);
             lg.setContra(contra);
             lg.setRol(rol);
-            login.Registrar(lg);
+            login.registrar(lg);
             Login iniciar = new Login();
             iniciar.setVisible(true);
             dispose();

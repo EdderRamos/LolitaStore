@@ -33,7 +33,7 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
  *
  * @author Miguel
  */
-public final class Sistema extends javax.swing.JFrame {
+public final class Aplicacion extends javax.swing.JFrame {
 
     Date fechaVenta = new Date();
     String fechaActual = new SimpleDateFormat("dd/MM/yyyy").format(fechaVenta);
@@ -56,7 +56,7 @@ public final class Sistema extends javax.swing.JFrame {
 
     private Sesion sesion;
 
-    public Sistema() {
+    public Aplicacion() {
         Sesion demo = new Sesion();
         demo.setRol("Administrador");
         demo.setId(1);
@@ -66,7 +66,7 @@ public final class Sistema extends javax.swing.JFrame {
         init(demo);
     }
 
-    public Sistema(Sesion login) {
+    public Aplicacion(Sesion login) {
         init(login);
     }
 
@@ -1630,7 +1630,7 @@ public final class Sistema extends javax.swing.JFrame {
             File file = new File("src/pdf/venta" + id + ".pdf");
             Desktop.getDesktop().open(file);
         } catch (IOException ex) {
-            Logger.getLogger(Sistema.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Aplicacion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnPdfVentasActionPerformed
 
@@ -1987,20 +1987,21 @@ public final class Sistema extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Sistema.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Aplicacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Sistema.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Aplicacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Sistema.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Aplicacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Sistema.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Aplicacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Sistema().setVisible(true);
+                new Aplicacion().setVisible(true);
             }
         });
     }

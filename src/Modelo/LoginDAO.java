@@ -11,7 +11,7 @@ public class LoginDAO {
     ResultSet rs;
     ConexionBd cn = new ConexionBd();
     
-    public Sesion log(String correo, String contra){
+    public Sesion login(String correo, String contra){
         Sesion l = new Sesion();
         String sql = "SELECT * FROM usuarios WHERE correo = ? AND contra = ?";
         try {
@@ -34,7 +34,7 @@ public class LoginDAO {
         return l;
     }
     
-    public boolean Registrar(Sesion reg){
+    public boolean registrar(Sesion reg){
         String sql = "INSERT INTO usuarios (nombre, correo, contra, rol) VALUES (?,?,?,?)";
         try{
             con = cn.getConnection();
