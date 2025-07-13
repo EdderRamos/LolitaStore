@@ -30,7 +30,7 @@ public class VentaDAO {
         return id;
     }
     
-    public int RegistrarVenta(Venta v){
+    public int registrarVenta(Venta v){
         String sql = "INSERT INTO ventas (cliente, vendedor, total, fecha) VALUES (?,?,?,?)";
         try {
             con = cn.getConnection();
@@ -52,12 +52,12 @@ public class VentaDAO {
         return r;
     }
     
-    public int RegistrarDetalle(Detalle dv){
+    public int registraDetalle(Detalle dv){
         String sql = "INSERT INTO detalle (cod_pro, cantidad, precio, id_venta) VALUES (?,?,?,?)";
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setString(1, dv.getCod_pro());
+            ps.setString(1, dv.getCodigoProducto());
             ps.setInt(2, dv.getCantidad());
             ps.setDouble(3, dv.getPrecio());
             ps.setInt(4, dv.getId());
@@ -74,7 +74,8 @@ public class VentaDAO {
         return r;
     }
     
-    public boolean ActualizarStock (int cant, String cod){
+    
+    public boolean actualizarStock(int cant, String cod){
         String sql = "UPDATE productos SET stock=? WHERE codigo=?";
         try {
             con = cn.getConnection();
@@ -89,7 +90,7 @@ public class VentaDAO {
         }
     }
     
-    public List ListarVentas(){
+    public List obtenerVentas(){
         List<Venta> ListaVenta = new ArrayList();
         String sql = "SELECT * FROM ventas";
         try {

@@ -1,4 +1,6 @@
-package Modelo;
+package EstructuraDeDatos.ListaEnlazada;
+
+import Modelo.*;
 
 public class ListaClientes {
     private NodoCliente cabeza;

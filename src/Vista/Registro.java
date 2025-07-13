@@ -1,11 +1,11 @@
 package Vista;
 
-import Modelo.login;
+import Modelo.Sesion;
 import Modelo.LoginDAO;
 
 public class Registro extends javax.swing.JFrame {
     
-    login lg = new login();
+    Sesion lg = new Sesion();
     LoginDAO login = new LoginDAO();
     
     public Registro() {

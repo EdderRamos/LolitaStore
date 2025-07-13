@@ -1,4 +1,6 @@
-package Modelo;
+package EstructuraDeDatos.ListaEnlazada;
+
+import Modelo.Cliente;
 
 public class NodoCliente {
     Cliente cliente;

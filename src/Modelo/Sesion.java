@@ -1,16 +1,16 @@
 package Modelo;
 
-public class login {
+public class Sesion {
     private int id;
     private String nombre;
     private String correo;
     private String contra;
     private String rol;
 
-    public login() {
+    public Sesion() {
     }
 
-    public login(int id, String nombre, String correo, String contra, String rol) {
+    public Sesion(int id, String nombre, String correo, String contra, String rol) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;

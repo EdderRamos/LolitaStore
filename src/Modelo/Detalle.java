@@ -2,21 +2,21 @@ package Modelo;
 
 public class Detalle {
     private int id;
-    private String cod_pro;
+    private String CodigoProducto;
     private int cantidad;
     private double precio;
-    private int id_venta;
+    private int idVenta;
     
     public Detalle(){
         
     }
 
-    public Detalle(int id, String cod_pro, int cantidad, double precio, int id_venta) {
+    public Detalle(int id, String codigoProducto, int cantidad, double precio, int idVenta) {
         this.id = id;
-        this.cod_pro = cod_pro;
+        this.CodigoProducto = codigoProducto;
         this.cantidad = cantidad;
         this.precio = precio;
-        this.id_venta = id_venta;
+        this.idVenta = idVenta;
     }
 
     public int getId() {
@@ -27,12 +27,12 @@ public class Detalle {
         this.id = id;
     }
 
-    public String getCod_pro() {
-        return cod_pro;
+    public String getCodigoProducto() {
+        return CodigoProducto;
     }
 
-    public void setCod_pro(String cod_pro) {
-        this.cod_pro = cod_pro;
+    public void setCodigoProducto(String codigoProducto) {
+        this.CodigoProducto = codigoProducto;
     }
 
     public int getCantidad() {
@@ -51,12 +51,12 @@ public class Detalle {
         this.precio = precio;
     }
 
-    public int getId_venta() {
-        return id_venta;
+    public int getIdVenta() {
+        return idVenta;
     }
 
-    public void setId_venta(int id_venta) {
-        this.id_venta = id_venta;
+    public void setIdVerta(int idVenta) {
+        this.idVenta = idVenta;
     }
     
     

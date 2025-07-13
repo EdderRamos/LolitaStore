@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package DataStructure;
+package EstructuraDeDatos.ABB;
 
-import Modelo.Productos;
+import Modelo.Producto;
 
 /**
  *
@@ -14,11 +14,11 @@ public class ArbolProducto {
 
     private NodoProducto raiz;
 
-    public void insertar(Productos producto) {
+    public void insertar(Producto producto) {
        raiz = insertar(raiz, producto);
     }
 
-    public NodoProducto insertar(NodoProducto nodo, Productos producto) {
+    public NodoProducto insertar(NodoProducto nodo, Producto producto) {
         if (nodo == null) {
             return new NodoProducto(producto);
         }
@@ -32,11 +32,11 @@ public class ArbolProducto {
         return nodo;
     }
 
-    public Productos buscar(String codigo) {
+    public Producto buscar(String codigo) {
          return buscar(raiz, codigo);
     }
 
-    public Productos buscar(NodoProducto nodo, String codigo) {
+    public Producto buscar(NodoProducto nodo, String codigo) {
         if (nodo == null) {
             return null;
         }
