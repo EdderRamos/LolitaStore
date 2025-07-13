@@ -154,8 +154,9 @@ public final class Sistema extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tbCarritoDeVenta.getModel();
         model.setRowCount(0);
         txtDniORucClienteEnVenta.setText("");
-        txtNombreClienteVenta.setText("");
-        txtTelefonoClienteVenta.setText("");
+        txtNombreClienteVenta.setText("...");
+        txtTelefonoClienteVenta.setText("...");
+        txtCarritoTotal.setText("...");
     }
 
     public void ListarCliente() {
