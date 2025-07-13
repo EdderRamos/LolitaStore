@@ -15,7 +15,7 @@ import Modelo.Producto;
 import Modelo.ProductosDAO;
 import Modelo.Venta;
 import Modelo.VentaDAO;
-import Reportes.BoletaPDF;
+import Utilidades.BoletaPDF;
 import Vista.Home;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -96,7 +96,7 @@ public class CrearVentaController {
     public void enBuscarCliente(String codigoCliente) {
         try {
             int dniORuc = Integer.parseInt(codigoCliente);
-            Cliente cliente = clienteDao.BuscarCliente(dniORuc);
+            Cliente cliente = clienteDao.buscarClientePorDniORuc(dniORuc);
 
             if (cliente == null) {
                 vista.mostrarMensaje("No se encontro el cliente");
@@ -120,7 +120,7 @@ public class CrearVentaController {
             vista.mostrarMensaje("Debes ingresar un cliente");
             return;
         }
-        Cliente cliente = clienteDao.BuscarCliente(Integer.parseInt(dniORucCliente));
+        Cliente cliente = clienteDao.buscarClientePorDniORuc(Integer.parseInt(dniORucCliente));
 
         if (cliente == null) {
             vista.mostrarMensaje("Cliente no encontrado");

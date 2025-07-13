@@ -1,4 +1,4 @@
-package Reportes;
+package Utilidades;
 
 import Modelo.Boleta;
 import Modelo.Detalle;
@@ -17,7 +17,6 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
-import tiendalolita.CompanyData;
 /**
  *
  * @author eramos

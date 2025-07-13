@@ -23,6 +23,7 @@ public class Login extends javax.swing.JFrame {
             mostrarMensage("Correo invalido");
             return;
         }
+        
         if (pass.isBlank()) {
             mostrarMensage("Contrasena Invalida");
             return;

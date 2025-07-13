@@ -1,5 +1,6 @@
 package Modelo;
 
+import baseDeDatos.ConexionDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +11,7 @@ import javax.swing.JComboBox;
 
 public class ProductosDAO {
     Connection con;
-    ConexionBd cn = new ConexionBd();
+    ConexionDB cn = ConexionDB.getInstancia();
     PreparedStatement ps;
     ResultSet rs;
     

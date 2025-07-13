@@ -6,7 +6,6 @@ public class Cliente {
     private String nombre;
     private int telefono;
     private String direccion;
-    private String razon;
 
     public Cliente() {
     }
@@ -17,9 +16,8 @@ public class Cliente {
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
-        this.razon = razon;
     }
-
+    
     public int getId() {
         return id;
     }
@@ -60,11 +58,4 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public String getRazon() {
-        return razon;
-    }
-
-    public void setRazon(String razon) {
-        this.razon = razon;
-    }
 }

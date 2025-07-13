@@ -6,7 +6,6 @@ public class Proveedor {
     private String nombre;
     private int telefono;
     private String direccion;
-    private String razon;
     
     public Proveedor(){
         
@@ -18,7 +17,6 @@ public class Proveedor {
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
-        this.razon = razon;
     }
 
     public int getId() {
@@ -60,14 +58,5 @@ public class Proveedor {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-
-    public String getRazon() {
-        return razon;
-    }
-
-    public void setRazon(String razon) {
-        this.razon = razon;
-    }
-    
     
 }
