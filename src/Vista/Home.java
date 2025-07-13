@@ -33,7 +33,7 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
  *
  * @author Miguel
  */
-public final class Aplicacion extends javax.swing.JFrame {
+public final class Home extends javax.swing.JFrame {
 
     Date fechaVenta = new Date();
     String fechaActual = new SimpleDateFormat("dd/MM/yyyy").format(fechaVenta);
@@ -56,7 +56,7 @@ public final class Aplicacion extends javax.swing.JFrame {
 
     private Sesion sesion;
 
-    public Aplicacion() {
+    public Home() {
         Sesion demo = new Sesion();
         demo.setRol("Administrador");
         demo.setId(1);
@@ -66,7 +66,7 @@ public final class Aplicacion extends javax.swing.JFrame {
         init(demo);
     }
 
-    public Aplicacion(Sesion login) {
+    public Home(Sesion login) {
         init(login);
     }
 
@@ -1616,12 +1616,13 @@ public final class Aplicacion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNuevaVentaActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        Registro reg = new Registro();
+        AddUser reg = new AddUser();
         reg.setVisible(true);
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnRegistrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar1ActionPerformed
-        // TODO add your handling code here:
+        AddUser addUserView = new AddUser();
+        addUserView.setVisible(true);
     }//GEN-LAST:event_btnRegistrar1ActionPerformed
 
     private void btnPdfVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPdfVentasActionPerformed
@@ -1630,7 +1631,7 @@ public final class Aplicacion extends javax.swing.JFrame {
             File file = new File("src/pdf/venta" + id + ".pdf");
             Desktop.getDesktop().open(file);
         } catch (IOException ex) {
-            Logger.getLogger(Aplicacion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnPdfVentasActionPerformed
 
@@ -1987,21 +1988,23 @@ public final class Aplicacion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Aplicacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Aplicacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Aplicacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Aplicacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Aplicacion().setVisible(true);
+                new Home().setVisible(true);
             }
         });
     }

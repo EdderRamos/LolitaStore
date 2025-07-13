@@ -35,7 +35,7 @@ public class Login extends javax.swing.JFrame {
             return;
         }
 
-        Aplicacion app = new Aplicacion(sesion);
+        Home app = new Home(sesion);
         app.setVisible(true);
         dispose();
     }

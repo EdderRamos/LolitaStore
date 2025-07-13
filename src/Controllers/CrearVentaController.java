@@ -16,7 +16,7 @@ import Modelo.ProductosDAO;
 import Modelo.Venta;
 import Modelo.VentaDAO;
 import Reportes.BoletaPDF;
-import Vista.Aplicacion;
+import Vista.Home;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -26,7 +26,7 @@ import java.util.ArrayList;
  */
 public class CrearVentaController {
 
-    private Aplicacion vista;
+    private Home vista;
 
     private ProductosDAO productosDao;
     private VentaDAO ventasDao;
@@ -35,7 +35,7 @@ public class CrearVentaController {
     private ArbolProducto arbolProductos;
     private CarritoDeCompras carrito;
 
-    public CrearVentaController(Aplicacion vista) {
+    public CrearVentaController(Home vista) {
         this.vista = vista;
 
         productosDao = new ProductosDAO();
