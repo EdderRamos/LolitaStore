@@ -72,6 +72,7 @@ public class ArbolProducto {
             productoEnABB.setPrecio(producto.getPrecio());
             productoEnABB.setCodigo(producto.getCodigo());
             productoEnABB.setProveedor(producto.getProveedor());
+            productoEnABB.setStock(producto.getStock());
             return true;
         }
         return false;

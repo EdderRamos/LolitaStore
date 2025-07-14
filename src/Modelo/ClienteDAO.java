@@ -104,14 +104,8 @@ public class ClienteDAO {
             ps.execute();
             return true;
         } catch (SQLException e) {
-            System.out.println(e.toString());
+            System.out.println("db actualizar error: " + e.toString());
             return false;
-        } finally {
-            try {
-                con.close();
-            } catch (SQLException e) {
-                System.out.println(e.toString());
-            }
         }
     }
 
