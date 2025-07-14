@@ -5,7 +5,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class VentaDAO {
@@ -103,6 +106,64 @@ public class VentaDAO {
             System.out.println(e.toString());
         }
         return ListaVenta;
+    }
+    public List<Venta> obtenerVentasDelMes() {
+        List<Venta> ventasMes = new ArrayList<>();
+        List<Venta> ventas = obtenerVentas();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        int mesActual = calendar.get(Calendar.MONTH);
+
+        for (Venta venta : ventas) {
+            try {
+                Date fechaVenta = sdf.parse(venta.getFecha());
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(fechaVenta);
+                int mesVenta = cal.get(Calendar.MONTH);
+                if (mesVenta == mesActual) {
+                    ventasMes.add(venta);
+                }
+            } catch (Exception e) {
+                System.out.println(e.toString());
+            }
+        }
+        return ventasMes;
+    }
+    public List<Venta> obtenerVentasDeLaSemana() {
+        List<Venta> ventasSemana = new ArrayList<>();
+        List<Venta> ventas = obtenerVentas();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        int semanaActual = calendar.get(Calendar.WEEK_OF_YEAR);
+
+        for (Venta venta : ventas) {
+            try {
+                Date fechaVenta = sdf.parse(venta.getFecha());
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(fechaVenta);
+                int semanaVenta = cal.get(Calendar.WEEK_OF_YEAR);
+                if (semanaVenta == semanaActual) {
+                    ventasSemana.add(venta);
+                }
+            } catch (Exception e) {
+                System.out.println(e.toString());
+            }
+        }
+        return ventasSemana;
+    }
+    public List<Venta> obtenerVentasDeHoy() {
+        List<Venta> ventasHoy = new ArrayList<>();
+        List<Venta> ventas = obtenerVentas();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        String hoy = sdf.format(calendar.getTime());
+
+        for (Venta venta : ventas) {
+            if (venta.getFecha().equals(hoy)) {
+                ventasHoy.add(venta);
+            }
+        }
+        return ventasHoy;
     }
 
     public Venta buscarPorId(int id) {

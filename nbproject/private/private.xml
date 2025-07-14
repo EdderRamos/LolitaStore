@@ -1,45 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/Vista/Home.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>271</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/EstructuraDeDatos/ListaEnlazada/NodoCliente.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Modelo/ClienteDAO.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Modelo/ConexionBd.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/tarjeta_de_debito.png</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Vista/AddUser.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Modelo/Eventos.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/EstructuraDeDatos/ABB/ArbolProducto.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Modelo/Venta.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/modelo/Venta.java</file>
             <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/EstructuraDeDatos/ABB/NodoProducto.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/modelo/Producto.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/modelo/Proveedor.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/EstructuraDeDatos/ABB/OrdenamientoABB.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/excel.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/vista/Login.java</file>
             <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/EstructuraDeDatos/Arrays/CarritoDeCompras.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/EstructuraDeDatos/Arrays/CarritoItem.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Controllers/CrearVentaController.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/vista/Home.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/controlador/ClienteController.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/controlador/ProveedorController.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/controlador/ProductoController.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/EstructuraDeDatos/ListaEnlazada/ListaClientes.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/EstructuraDeDatos/ListaEnlazada/ListaProveedores.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/EstructuraDeDatos/ListaEnlazada/NodoCliente.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/EstructuraDeDatos/ListaEnlazada/NodoProveedor.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/modelo/ProveedorDAO.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/modelo/ClienteDAO.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/modelo/ProductosDAO.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/controlador/CrearVentaController.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/EstructuraDeDatos/ABB/ArbolProducto.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/pdf.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/EstructuraDeDatos/Colas/ListaColaVentas.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/EstructuraDeDatos/Colas/NodoVenta.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/util/ConexionDB.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/controlador/HistorialVentasController.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/EstructuraDeDatos/Pilas/ListaPilaVentas.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/modelo/VentaDAO.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/vista/AddUser.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/util/BoletaPDF.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/util/Eventos.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/util/CompanyData.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/util/Colors.java</file>
             <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/tiendalolita/TiendaLolita.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Modelo/ProductosDAO.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Modelo/VentaDAO.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Modelo/Producto.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Modelo/Detalle.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Modelo/LoginDAO.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Modelo/Proveedor.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Modelo/ProveedorDAO.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Modelo/Config.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/tiendalolita/CompanyData.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Modelo/Sesion.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Controllers/ClienteController.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/sumar.png</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/Actualizar%20(2).png</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/Carrito-de-compras.png</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/Nventa.png</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/lupa.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/agregar_usuario.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/ayuda.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/bolsa_de_compras.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/calendario_semana.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/carrito.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/cerrar_sesion.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/clientes.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/comprador.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/configurar.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/dolar.png</file>
             <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/eliminar.png</file>
             <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/editar.png</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Utilidades/Colors.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Utilidades/Excel.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Vista/Home.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Vista/Login.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Utilidades/BoletaPDF.java</file>
-            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/EstructuraDeDatos/ListaEnlazada/ListaClientes.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/historial_de_ventas.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/logo.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/logo_pdf.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/lupa.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/nuevo.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/proveedores.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/sumar.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/tarjeta_de_debito.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/tienda.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/Imagenes/productos.png</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/modelo/Detalle.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/modelo/LoginDAO.java</file>
+            <file>file:/C:/Users/lee_j/OneDrive/Escritorio/UTP%20COURSES/SICLO%20V/ALGORITMOS%20Y%20ESTRUCTURA%20DE%20DATOS/PROYECTO%20FINAL/TiendaLolita/src/modelo/Boleta.java</file>
         </group>
     </open-files>
 </project-private>

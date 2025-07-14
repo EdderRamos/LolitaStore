@@ -48,6 +48,7 @@ public class CrearVentaController {
         for (Producto p : productosDao.obtenerProductos()) {
             arbolProductos.insertar(p);
         }
+        enActualizarVentasRealizadas();
     }
 
     public void enAgregarAlCarrito(String codigoProducto, String cantidad) {
@@ -167,6 +168,15 @@ public class CrearVentaController {
         boleta.setDetalles(detalles);
         boleta.setVenta(v);
         BoletaPDF.generateBoletaPDF(boleta);
+        enActualizarVentasRealizadas();
+    }
+
+    public void enActualizarVentasRealizadas() {
+        int mes = ventasDao.obtenerVentasDelMes().size();
+        int semana = ventasDao.obtenerVentasDeLaSemana().size();
+        int hoy = ventasDao.obtenerVentasDeHoy().size();
+        vista.actualizarVentasRealizadasSuperior(mes, semana, hoy);
+
     }
 
 }

@@ -124,6 +124,12 @@ public final class Home extends javax.swing.JFrame {
         return null;
     }
 
+    public void actualizarVentasRealizadasSuperior(int enElMes, int enLaSemana, int hoy) {
+        txtVentaDelMes.setText("" + enElMes);
+        txtVentaEnLaSemana.setText("" + enLaSemana);
+        txtVentasDeHoy.setText("" + hoy);
+    }
+
     // FUNCIONES DEL MODULO DE CREAR VENTA
     public void actualizarCarritodeVenta(CarritoDeCompras carrito) {
         DefaultTableModel modeloCarrito = (DefaultTableModel) tbCarritoDeVenta.getModel();
@@ -307,13 +313,14 @@ public final class Home extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
-        VentaEnLaSemana = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
+        txtVentaEnLaSemana = new javax.swing.JLabel();
+        jPanel99 = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
-        VentasDeHoy = new javax.swing.JLabel();
+        txtVentasDeHoy = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jLabel44 = new javax.swing.JLabel();
+        btnActualizarNumeroDeVentas = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -482,9 +489,9 @@ public final class Home extends javax.swing.JFrame {
 
         jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/calendario_semana.png"))); // NOI18N
 
-        VentaEnLaSemana.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        VentaEnLaSemana.setForeground(java.awt.Color.darkGray);
-        VentaEnLaSemana.setText("24");
+        txtVentaEnLaSemana.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtVentaEnLaSemana.setForeground(java.awt.Color.darkGray);
+        txtVentaEnLaSemana.setText("24");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -498,7 +505,7 @@ public final class Home extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(VentaEnLaSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtVentaEnLaSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(73, 73, 73))
         );
         jPanel10Layout.setVerticalGroup(
@@ -509,13 +516,13 @@ public final class Home extends javax.swing.JFrame {
                     .addComponent(jLabel38)
                     .addComponent(jLabel35))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(VentaEnLaSemana)
+                .addComponent(txtVentaEnLaSemana)
                 .addGap(22, 22, 22))
         );
 
-        jPanel11.setBackground(new java.awt.Color(237, 246, 247));
-        jPanel11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel11.setForeground(new java.awt.Color(202, 217, 221));
+        jPanel99.setBackground(new java.awt.Color(237, 246, 247));
+        jPanel99.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel99.setForeground(new java.awt.Color(202, 217, 221));
 
         jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel36.setForeground(java.awt.Color.darkGray);
@@ -523,34 +530,34 @@ public final class Home extends javax.swing.JFrame {
 
         jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/comprador.png"))); // NOI18N
 
-        VentasDeHoy.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        VentasDeHoy.setForeground(java.awt.Color.darkGray);
-        VentasDeHoy.setText("24");
+        txtVentasDeHoy.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtVentasDeHoy.setForeground(java.awt.Color.darkGray);
+        txtVentasDeHoy.setText("24");
 
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel99Layout = new javax.swing.GroupLayout(jPanel99);
+        jPanel99.setLayout(jPanel99Layout);
+        jPanel99Layout.setHorizontalGroup(
+            jPanel99Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel99Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel99Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(VentasDeHoy, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtVentasDeHoy, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
         );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
+        jPanel99Layout.setVerticalGroup(
+            jPanel99Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel99Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel99Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel39)
                     .addComponent(jLabel36))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(VentasDeHoy)
+                .addComponent(txtVentasDeHoy)
                 .addGap(19, 19, 19))
         );
 
@@ -559,6 +566,19 @@ public final class Home extends javax.swing.JFrame {
         jLayeredPane1.add(jLabel44);
         jLabel44.setBounds(25, 43, 43, 16);
 
+        btnActualizarNumeroDeVentas.setBackground(new java.awt.Color(237, 246, 247));
+        btnActualizarNumeroDeVentas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnActualizarNumeroDeVentas.setForeground(java.awt.Color.darkGray);
+        btnActualizarNumeroDeVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/refrescar.png"))); // NOI18N
+        btnActualizarNumeroDeVentas.setToolTipText("");
+        btnActualizarNumeroDeVentas.setHideActionText(true);
+        btnActualizarNumeroDeVentas.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnActualizarNumeroDeVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarNumeroDeVentasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
@@ -566,14 +586,20 @@ public final class Home extends javax.swing.JFrame {
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btnActualizarNumeroDeVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)))
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(75, 75, 75)
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(83, 83, 83)
-                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel99, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGap(237, 237, 237)
                         .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -581,16 +607,19 @@ public final class Home extends javax.swing.JFrame {
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnActualizarNumeroDeVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addContainerGap(68, Short.MAX_VALUE)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel99, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(18, 18, 18)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1806,7 +1835,7 @@ public final class Home extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRegistrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1230, 950));
@@ -2220,6 +2249,10 @@ public final class Home extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAbrirPDFDeSeleccionadoActionPerformed
 
+    private void btnActualizarNumeroDeVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarNumeroDeVentasActionPerformed
+        crearVentaController.enActualizarVentasRealizadas();
+    }//GEN-LAST:event_btnActualizarNumeroDeVentasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2259,13 +2292,12 @@ public final class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel VentaEnLaSemana;
-    private javax.swing.JLabel VentasDeHoy;
     private javax.swing.JButton btnAbrirPDFDeSeleccionado;
     private javax.swing.JButton btnAceptarEnClientes;
     private javax.swing.JButton btnAceptarEnProductos;
     private javax.swing.JButton btnAceptarEnProveedores;
     private javax.swing.JButton btnActualizarCliente;
+    private javax.swing.JButton btnActualizarNumeroDeVentas;
     private javax.swing.JButton btnActualizarProducto;
     private javax.swing.JButton btnActualizarProveedor;
     private javax.swing.JButton btnAgregarCliente;
@@ -2332,7 +2364,6 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
@@ -2344,6 +2375,7 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel jPanel99;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -2379,6 +2411,8 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JTextField txtTelefonoProveedor;
     private javax.swing.JLabel txtUserName;
     private javax.swing.JLabel txtVentaDelMes;
+    private javax.swing.JLabel txtVentaEnLaSemana;
+    private javax.swing.JLabel txtVentasDeHoy;
     // End of variables declaration//GEN-END:variables
 
 }
