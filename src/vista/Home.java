@@ -31,21 +31,21 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
  * @author Edder
  */
 public final class Home extends javax.swing.JFrame {
-
+    
     Eventos event = new Eventos();
-
+    
     private CrearVentaController crearVentaController;
     private ClienteController clienteController;
     private ProductoController productoController;
     private ProveedorController proveedorController;
     private HistorialVentasController historialVentasController;
-
+    
     private JButton[] opcionesDeClientes;
     private JButton[] opcionesDeProductos;
     private JButton[] opcionesDeProveedores;
-
+    
     private Sesion sesion;
-
+    
     public Home() {
         Sesion demo = new Sesion();
         demo.setRol("Administrador");
@@ -55,15 +55,15 @@ public final class Home extends javax.swing.JFrame {
         demo.setCorreo("prueba@gmail.com");
         init(demo);
     }
-
+    
     public Home(Sesion login) {
         init(login);
     }
-
+    
     public void init(Sesion login) {
         this.sesion = login;
         this.setLocationRelativeTo(null);
-
+        
         initComponents();
 
         //incializamos solo el controller del item seleccionado por default
@@ -75,15 +75,17 @@ public final class Home extends javax.swing.JFrame {
         opcionesDeProductos = new JButton[]{btnBuscarProducto, btnAgregarProducto, btnActualizarProducto, btnEliminarProducto};
         //accioens para proveedores 
         opcionesDeProveedores = new JButton[]{btnBuscarProveedorEnProveedores, btnAgregarProveedor, btnActualizarProveedor, btnEliminarProveedor};
-
+        
         cargarOpcionesDeOrdenamientoABB();
-
+        
         AutoCompleteDecorator.decorate(cbxProveedorProducto);
-
+        //configure user options and user data
+        configureUserOption();
+        
     }
-
+    
     public void configureUserOption() {
-
+        txtUserName.setText(sesion.getNombre());
         if (sesion.getRol().equals("Asistente")) {
             btnActualizarProducto.setEnabled(false);
             btnEliminarProducto.setEnabled(false);
@@ -95,16 +97,16 @@ public final class Home extends javax.swing.JFrame {
             labelVendedor.setText(sesion.getNombre());
         }
     }
-
+    
     public void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "", JOptionPane.INFORMATION_MESSAGE);
     }
-
+    
     public int mostrarPregunta(String mensage) {
         //si retorna 1 es que esta de acuerdo con la accion
         return JOptionPane.showConfirmDialog(null, mensage);
     }
-
+    
     private void seleccionarBotonPorIndice(int index, JButton[] listaDeBotones) {
         for (int i = 0; i < listaDeBotones.length; i++) {
             if (i == index) {
@@ -115,7 +117,7 @@ public final class Home extends javax.swing.JFrame {
             }
         }
     }
-
+    
     private JButton obtenerBotonSeleccionado(JButton[] listaDeBotones) {
         for (JButton boton : listaDeBotones) {
             if (boton.getBackground() == Colors.colorSeleccionado) {
@@ -129,7 +131,7 @@ public final class Home extends javax.swing.JFrame {
     public void actualizarCarritodeVenta(CarritoDeCompras carrito) {
         DefaultTableModel modeloCarrito = (DefaultTableModel) tbCarritoDeVenta.getModel();
         modeloCarrito.setRowCount(0);
-
+        
         for (CarritoItem item : carrito.getItems()) {
             Producto p = item.getProducto();
             Object[] fila = new Object[5];
@@ -140,11 +142,11 @@ public final class Home extends javax.swing.JFrame {
             fila[4] = item.calcularTotal();
             modeloCarrito.addRow(fila);
         }
-
+        
         txtCarritoTotal.setText("S/. " + carrito.calcularTotal());
-
+        
     }
-
+    
     public void actualizarProductoSeleccionadoEnVenta(Producto producto) {
         if (producto == null) {
             txtCodigoDeProductoEnVenta.setText("");
@@ -157,9 +159,9 @@ public final class Home extends javax.swing.JFrame {
             txtDescripcionVenta.setText(producto.getNombre());
             txtStockVenta.setText(producto.getStock() + "");
         }
-
+        
     }
-
+    
     public void actualizarClienteSeleccionadoEnVenta(Cliente cliente) {
         if (cliente == null) {
             txtDniORucClienteEnVenta.setText("");
@@ -170,7 +172,7 @@ public final class Home extends javax.swing.JFrame {
             txtTelefonoClienteVenta.setText(cliente.getTelefono() + "");
         }
     }
-
+    
     public void reiniciarRealizarCompra() {
         DefaultTableModel model = (DefaultTableModel) tbCarritoDeVenta.getModel();
         model.setRowCount(0);
@@ -186,7 +188,7 @@ public final class Home extends javax.swing.JFrame {
         modelo.setRowCount(0);
         lesClientes.mostrarEnTabla(modelo);
     }
-
+    
     public void actualizarImputsEnClientes(Cliente cliente) {
         if (cliente == null) {
             txtNombreCliente.setText("");
@@ -201,7 +203,7 @@ public final class Home extends javax.swing.JFrame {
             seleccionarItemEnTablaClintesPorId(cliente.getId());
         }
     }
-
+    
     private void seleccionarItemEnTablaClintesPorId(int idBuscado) {
         for (int i = 0; i < tbClientes.getRowCount(); i++) {
             int id = (int) tbClientes.getValueAt(i, 0);
@@ -215,20 +217,20 @@ public final class Home extends javax.swing.JFrame {
     public void actualizarTablaDeProductos(ArbolProducto arbolProducto) {
         DefaultTableModel modelo = (DefaultTableModel) tbProductos.getModel();
         modelo.setRowCount(0);
-
+        
         String seleccionado = (String) cbxOrdenABB.getSelectedItem();
         arbolProducto.mostrarOrdenado(seleccionado, modelo);
         System.out.println("Cambio ordenamiento:: " + seleccionado);
-
+        
     }
-
+    
     public void actualizarImputsEnProductos(Producto producto) {
         if (producto == null) {
             txtCodigoProducto.setText("");
             txtDesProducto.setText("");
             txtPrecioProducto.setText("");
             txtCantProducto.setText("");
-
+            
         } else {
             txtCodigoProducto.setText(producto.getCodigo());
             txtDesProducto.setText(producto.getNombre());
@@ -236,17 +238,17 @@ public final class Home extends javax.swing.JFrame {
             seleccionarItemEnTablaProductoPorCodigo(producto.getCodigo());
         }
     }
-
+    
     private void seleccionarItemEnTablaProductoPorCodigo(String codigo) {
         for (int i = 0; i < tbClientes.getRowCount(); i++) {
             String codigoEnTabla = String.valueOf(tbProductos.getValueAt(i, 1));
-
+            
             if (codigoEnTabla.equals(codigo)) {
                 tbClientes.setRowSelectionInterval(i, i);
             }
         }
     }
-
+    
     private void cargarOpcionesDeOrdenamientoABB() {
         //cargar tipos de orden
         for (OrdenamientoABB options : OrdenamientoABB.ordenamientos) {
@@ -260,7 +262,7 @@ public final class Home extends javax.swing.JFrame {
         modelo.setRowCount(0);
         lesProveedores.mostrarEnTabla(modelo);
     }
-
+    
     public void actualizarImputsEnProveedores(Proveedor proveedor) {
         if (proveedor == null) {
             txtNombreProveedor.setText("");
@@ -274,7 +276,7 @@ public final class Home extends javax.swing.JFrame {
             seleccionarItemEnTablaProveedoresPorId(proveedor.getId());
         }
     }
-
+    
     private void seleccionarItemEnTablaProveedoresPorId(int idBuscado) {
         for (int i = 0; i < tbProveedores.getRowCount(); i++) {
             int id = (int) tbProveedores.getValueAt(i, 0);
@@ -413,7 +415,7 @@ public final class Home extends javax.swing.JFrame {
         btnProductos = new javax.swing.JButton();
         labelVendedor = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        txtUserName = new javax.swing.JLabel();
         btnHistorialDeVentas = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         btnRegistrar1 = new javax.swing.JButton();
@@ -1694,9 +1696,9 @@ public final class Home extends javax.swing.JFrame {
         jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo.png"))); // NOI18N
         jLabel33.setText("jLabel33");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(java.awt.Color.darkGray);
-        jLabel2.setText("Edder J. Ramos");
+        txtUserName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtUserName.setForeground(java.awt.Color.darkGray);
+        txtUserName.setText("...");
 
         btnHistorialDeVentas.setBackground(new java.awt.Color(246, 244, 242));
         btnHistorialDeVentas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -1718,7 +1720,7 @@ public final class Home extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelVendedor)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -1735,7 +1737,7 @@ public final class Home extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(jLabel2)
+                .addComponent(txtUserName)
                 .addGap(35, 35, 35)
                 .addComponent(labelVendedor)
                 .addGap(28, 28, 28)
@@ -1875,12 +1877,12 @@ public final class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarProductoActionPerformed
 
     private void btnEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProductoActionPerformed
-
+        
         seleccionarBotonPorIndice(3, opcionesDeProductos);
     }//GEN-LAST:event_btnEliminarProductoActionPerformed
 
     private void btnActualizarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarProductoActionPerformed
-
+        
         seleccionarBotonPorIndice(2, opcionesDeProductos);
     }//GEN-LAST:event_btnActualizarProductoActionPerformed
 
@@ -1908,7 +1910,7 @@ public final class Home extends javax.swing.JFrame {
     private void txtCodigoProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoProductoKeyTyped
         event.numberKeyPress(evt);
     }//GEN-LAST:event_txtCodigoProductoKeyTyped
-
+    
 
     private void btnAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarClienteActionPerformed
         seleccionarBotonPorIndice(1, opcionesDeClientes);
@@ -1963,7 +1965,7 @@ public final class Home extends javax.swing.JFrame {
             mostrarMensaje("Ingrese cantidad");
             return;
         }
-
+        
         crearVentaController.enAgregarAlCarrito(txtCodigoDeProductoEnVenta.getText(), txtCantidadVenta.getText());
     }//GEN-LAST:event_btnAgregarUnProductoAVentaActionPerformed
 
@@ -1976,7 +1978,7 @@ public final class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDniORucClienteEnVentaKeyPressed
 
     private void btnGenerarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarVentaActionPerformed
-
+        
         crearVentaController.enGenerarVenta(txtDniORucClienteEnVenta.getText(), sesion.getId() + "");
     }//GEN-LAST:event_btnGenerarVentaActionPerformed
 
@@ -1995,7 +1997,7 @@ public final class Home extends javax.swing.JFrame {
     private void txtCodigoDeProductoEnVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoDeProductoEnVentaKeyPressed
 
     }//GEN-LAST:event_txtCodigoDeProductoEnVentaKeyPressed
-
+    
     private int tryToGetIdFromCustomerTable() {
         try {
             //obtenemos el id 
@@ -2018,10 +2020,10 @@ public final class Home extends javax.swing.JFrame {
             cliente.setId(id);
             cliente.setNombre(txtNombreCliente.getText());
             cliente.setDireccion(txtDireccionCliente.getText());
-
+            
             cliente.setDni(Integer.parseInt(txtDniCliente.getText()));
             cliente.setTelefono(Integer.parseInt(txtTelefonoCliente.getText()));
-
+            
         } catch (NumberFormatException e) {
             cliente.setTelefono(0);
             if (cliente.getDni() == 0) {
@@ -2029,7 +2031,7 @@ public final class Home extends javax.swing.JFrame {
                 return;
             }
         }
-
+        
         JButton seleccionado = obtenerBotonSeleccionado(opcionesDeClientes);
         if (seleccionado == btnBuscarClienteEnClientes) {
             clienteController.enBuscarCliente(cliente.getDni());
@@ -2047,7 +2049,7 @@ public final class Home extends javax.swing.JFrame {
     private void btnCancelarEnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarEnClientesActionPerformed
         actualizarImputsEnClientes(null);
     }//GEN-LAST:event_btnCancelarEnClientesActionPerformed
-
+    
     private int tryToGetIdFromProductTable() {
         try {
             //obtenemos el id 
@@ -2073,7 +2075,7 @@ public final class Home extends javax.swing.JFrame {
             producto.setProveedor(cbxProveedorProducto.getSelectedItem().toString());
             producto.setStock(Integer.parseInt(txtCantProducto.getText()));
             producto.setPrecio(Double.parseDouble(txtPrecioProducto.getText()));
-
+            
         } catch (NumberFormatException e) {
             producto.setStock(0);
             producto.setPrecio(0);
@@ -2111,7 +2113,7 @@ public final class Home extends javax.swing.JFrame {
         historialVentasController = new HistorialVentasController(this);
         jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_btnHistorialDeVentasActionPerformed
-
+    
     private int tryToGetIdFromProviderTable() {
         try {
             //obtenemos el id 
@@ -2127,7 +2129,7 @@ public final class Home extends javax.swing.JFrame {
         }
     }
     private void btnAceptarEnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarEnProveedoresActionPerformed
-
+        
         Proveedor proveedor = new Proveedor();
         try {
             int id = tryToGetIdFromProviderTable();
@@ -2135,10 +2137,10 @@ public final class Home extends javax.swing.JFrame {
             proveedor.setId(id);
             proveedor.setNombre(txtNombreProveedor.getText());
             proveedor.setDireccion(txtDireccionProveedor.getText());
-
+            
             proveedor.setRuc(Integer.parseInt(txtRucProveedor.getText()));
             proveedor.setTelefono(Integer.parseInt(txtTelefonoProveedor.getText()));
-
+            
         } catch (NumberFormatException e) {
             proveedor.setTelefono(0);
             if (proveedor.getRuc() == 0) {
@@ -2146,7 +2148,7 @@ public final class Home extends javax.swing.JFrame {
                 return;
             }
         }
-
+        
         JButton seleccionado = obtenerBotonSeleccionado(opcionesDeProveedores);
         if (seleccionado == btnBuscarProveedorEnProveedores) {
             proveedorController.enBuscarProveedor(proveedor.getRuc());
@@ -2203,13 +2205,13 @@ public final class Home extends javax.swing.JFrame {
 
     private void btnAbrirPDFDeSeleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirPDFDeSeleccionadoActionPerformed
         try {
-
+            
             int selectedRow = tbVentas.getSelectedRow();
             if (selectedRow == -1) {
                 mostrarMensaje("No hay fila seleccionada");
                 return;
             }
-
+            
             int id = (int) tbVentas.getValueAt(selectedRow, 0);
             String fecha = String.valueOf(tbVentas.getValueAt(selectedRow, 3));
             String fileName = BoletaPDF.buildFileName(id, fecha);
@@ -2301,7 +2303,6 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -2379,6 +2380,7 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JTextField txtTelefonoCliente;
     private javax.swing.JLabel txtTelefonoClienteVenta;
     private javax.swing.JTextField txtTelefonoProveedor;
+    private javax.swing.JLabel txtUserName;
     // End of variables declaration//GEN-END:variables
 
 }
