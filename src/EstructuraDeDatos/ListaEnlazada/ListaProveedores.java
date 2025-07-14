@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package EstructuraDeDatos.ListaEnlazada;
-import Modelo.Proveedor;
+import modelo.Proveedor;
 import javax.swing.table.DefaultTableModel;
 
 /**

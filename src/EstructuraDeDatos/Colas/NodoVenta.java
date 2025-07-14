@@ -4,7 +4,7 @@
  */
 package EstructuraDeDatos.Colas;
 
-import Modelo.Venta;
+import modelo.Venta;
 
 
 /**

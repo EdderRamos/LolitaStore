@@ -4,7 +4,7 @@
  */
 package EstructuraDeDatos.ABB;
 
-import Modelo.Producto;
+import modelo.Producto;
 import javax.swing.table.DefaultTableModel;
 
 /**

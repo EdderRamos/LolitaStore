@@ -1,6 +1,6 @@
 package EstructuraDeDatos.ListaEnlazada;
 
-import Modelo.*;
+import modelo.Cliente;
 import javax.swing.table.DefaultTableModel;
 
 public class ListaClientes {

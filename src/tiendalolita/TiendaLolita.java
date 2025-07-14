@@ -6,7 +6,7 @@ package tiendalolita;
 
 /**
  *
- * @author Miguel
+ * @author Edder
  */
 public class TiendaLolita {
 

@@ -4,7 +4,7 @@
  */
 package EstructuraDeDatos.ListaEnlazada;
 
-import Modelo.Proveedor;
+import modelo.Proveedor;
 
 /**
  *

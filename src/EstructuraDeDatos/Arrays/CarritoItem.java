@@ -4,7 +4,7 @@
  */
 package EstructuraDeDatos.Arrays;
 
-import Modelo.Producto;
+import modelo.Producto;
 
 /**
  *

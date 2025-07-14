@@ -5,7 +5,7 @@
 package EstructuraDeDatos.Pilas;
 
 import EstructuraDeDatos.Colas.NodoVenta;
-import Modelo.Venta;
+import modelo.Venta;
 import javax.swing.table.DefaultTableModel;
 
 /**
