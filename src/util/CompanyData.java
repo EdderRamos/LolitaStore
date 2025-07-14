@@ -14,8 +14,7 @@ public class CompanyData {
     public static String NOMBRE = "TIENDA LOLITA";
     public static String TELEFONO = "987654321";
     public static String DIRECCION = "Av Simon Bolivar #2324";
-    public static String RAZON = "El mejor inicio de clases comienza aquí";
-   
+    public static String RAZON = "El mejor minimarket del Peru : Tienda Lolita!";
 
     public static String toStringData() {
         StringBuilder data = new StringBuilder();
