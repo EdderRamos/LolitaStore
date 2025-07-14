@@ -30,10 +30,15 @@ public class CarritoDeCompras {
         items.add(new CarritoItem(producto, cantidad));
     }
 
-    public void eliminarPorIndice(int index) {
-        items.remove(index);
+    public boolean eliminarPorIndice(int index) {
+        try {
+            items.remove(index);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+
     }
-    
 
     public ArrayList<CarritoItem> getItems() {
         return items;
@@ -46,9 +51,9 @@ public class CarritoDeCompras {
         }
         return total;
     }
-    
-    public void limpiar(){
+
+    public void limpiar() {
         items.clear();
     }
-    
+
 }

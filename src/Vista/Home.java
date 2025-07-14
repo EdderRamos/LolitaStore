@@ -428,6 +428,7 @@ public final class Home extends javax.swing.JFrame {
         labelVendedor = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btnProveedor1 = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         btnRegistrar1 = new javax.swing.JButton();
         jLayeredPane2 = new javax.swing.JLayeredPane();
@@ -1657,6 +1658,17 @@ public final class Home extends javax.swing.JFrame {
         jLabel2.setForeground(java.awt.Color.darkGray);
         jLabel2.setText("Edder J. Ramos");
 
+        btnProveedor1.setBackground(new java.awt.Color(246, 244, 242));
+        btnProveedor1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnProveedor1.setForeground(java.awt.Color.black);
+        btnProveedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/historial_de_ventas.png"))); // NOI18N
+        btnProveedor1.setText("Historial de Ventas");
+        btnProveedor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProveedor1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1673,7 +1685,8 @@ public final class Home extends javax.swing.JFrame {
                                 .addComponent(btnNuevaVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btnProveedor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnProductos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -1693,7 +1706,9 @@ public final class Home extends javax.swing.JFrame {
                 .addComponent(btnProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(btnProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnProveedor1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         btnRegistrar.setBackground(new java.awt.Color(237, 246, 247));
@@ -1790,7 +1805,7 @@ public final class Home extends javax.swing.JFrame {
 
     private void btnNuevaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaVentaActionPerformed
         jTabbedPane1.setSelectedIndex(0);
-        crearVentaController = new CrearVentaController(this);
+        crearVentaController.refreshListaDeProductos();
     }//GEN-LAST:event_btnNuevaVentaActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
@@ -2141,6 +2156,11 @@ public final class Home extends javax.swing.JFrame {
         productoController.enOrdenamientoCambio();
     }//GEN-LAST:event_cbxOrdenABBItemStateChanged
 
+    private void btnProveedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedor1ActionPerformed
+
+        jTabbedPane1.setSelectedIndex(4);
+    }//GEN-LAST:event_btnProveedor1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2208,6 +2228,7 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JButton btnPdfVentas;
     private javax.swing.JButton btnProductos;
     private javax.swing.JButton btnProveedor;
+    private javax.swing.JButton btnProveedor1;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnRegistrar1;
     private javax.swing.JComboBox<String> cbxOrdenABB;

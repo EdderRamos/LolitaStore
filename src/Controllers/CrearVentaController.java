@@ -42,8 +42,8 @@ public class CrearVentaController {
         ventasDao = new VentaDAO();
         clienteDao = new ClienteDAO();
 
-        arbolProductos = new ArbolProducto();
         carrito = new CarritoDeCompras();
+        arbolProductos = new ArbolProducto();
 
         for (Producto p : productosDao.obtenerProductos()) {
             arbolProductos.insertar(p);
@@ -65,6 +65,13 @@ public class CrearVentaController {
         vista.actualizarCarritodeVenta(carrito);
         vista.actualizarProductoSeleccionadoEnVenta(null);
 
+    }
+
+    public void refreshListaDeProductos() {
+        arbolProductos = new ArbolProducto();
+        for (Producto p : productosDao.obtenerProductos()) {
+            arbolProductos.insertar(p);
+        }
     }
 
     public void enEliminarSeleccionado(int index) {
@@ -127,8 +134,6 @@ public class CrearVentaController {
             return;
         }
 
-       
-
         //registrar venta
         Venta v = new Venta();
         v.setCliente(dniORucCliente);
@@ -136,7 +141,7 @@ public class CrearVentaController {
         v.setTotal(carrito.calcularTotal());
         v.setFecha(LocalDate.now().toString());
         ventasDao.registrarVenta(v);
-        
+
         //registrar detalle
         ArrayList<Detalle> detalles = new ArrayList();
         int id = ventasDao.IdVenta();
@@ -157,7 +162,7 @@ public class CrearVentaController {
         carrito.limpiar();
 
         //crear pdf
-         Boleta boleta = new Boleta();
+        Boleta boleta = new Boleta();
         boleta.setCliente(cliente);
         boleta.setDetalles(detalles);
         boleta.setVenta(v);

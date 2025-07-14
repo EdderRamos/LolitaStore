@@ -2125,7 +2125,8 @@
                                       <Component id="btnNuevaVenta" alignment="1" max="32767" attributes="0"/>
                                       <Component id="btnClientes" alignment="1" max="32767" attributes="0"/>
                                       <Component id="btnProveedor" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="btnProductos" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="btnProveedor1" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="btnProductos" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -2151,7 +2152,9 @@
                       <Component id="btnProductos" min="-2" pref="69" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="btnProveedor" min="-2" pref="68" max="-2" attributes="0"/>
-                      <EmptySpace pref="105" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnProveedor1" min="-2" pref="68" max="-2" attributes="0"/>
+                      <EmptySpace pref="19" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2267,6 +2270,26 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Edder J. Ramos"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnProveedor1">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="f2" green="f4" red="f6" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" id="black" palette="1" red="0" type="palette"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/historial_de_ventas.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Historial de Ventas"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProveedor1ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
