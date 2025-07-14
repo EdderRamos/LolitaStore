@@ -45,11 +45,7 @@ public class VentaDAO {
         } catch (SQLException e) {
             System.out.println(e.toString());
         } finally {
-            try {
-                con.close();
-            } catch (SQLException e) {
-                System.out.println(e.toString());
-            }
+
         }
         return r;
     }
@@ -67,11 +63,7 @@ public class VentaDAO {
         } catch (SQLException e) {
             System.out.println(e.toString());
         } finally {
-            try {
-                con.close();
-            } catch (SQLException e) {
-                System.out.println(e.toString());
-            }
+
         }
         return r;
     }
@@ -91,7 +83,7 @@ public class VentaDAO {
         }
     }
 
-    public List obtenerVentas() {
+    public List<Venta> obtenerVentas() {
         List<Venta> ListaVenta = new ArrayList();
         String sql = "SELECT * FROM ventas";
         try {
@@ -104,11 +96,67 @@ public class VentaDAO {
                 vent.setCliente(rs.getString("cliente"));
                 vent.setVendedor(rs.getString("vendedor"));
                 vent.setTotal(rs.getDouble("total"));
+                vent.setFecha(rs.getString("fecha"));
                 ListaVenta.add(vent);
             }
         } catch (SQLException e) {
             System.out.println(e.toString());
         }
         return ListaVenta;
+    }
+
+    public Venta buscarPorId(int id) {
+        Venta vent = new Venta();
+        String sql = "SELECT * FROM ventas WHERE id=?";
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                vent.setId(rs.getInt("id"));
+                vent.setCliente(rs.getString("cliente"));
+                vent.setVendedor(rs.getString("vendedor"));
+                vent.setTotal(rs.getDouble("total"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        return vent;
+    }
+
+    public void eliminarPorId(int id) {
+        try {
+            String sql = "DELETE FROM ventas where id=?";
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("venta eliminado exitosamente: ");
+            } else {
+                System.out.println("venta : error al eliminado el detalle.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error al eliminar voleta por id de: " + e.getMessage());
+        }
+    }
+
+    public void eliminarDetallePorIdVenta(int idVenta) {
+        try {
+            String sqlboleta = "DELETE FROM detalle where id_vent=?";
+            con = cn.getConnection();
+            ps = con.prepareStatement(sqlboleta);
+            ps.setInt(1, idVenta);
+            int rowsAffected = ps.executeUpdate();
+            // Confirmación en consola
+            if (rowsAffected > 0) {
+                System.out.println("detalle por boletaid eliminado exitosamente: ");
+            } else {
+                System.out.println("detalle por boleta id: error al eliminado el detalle.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error al eliminar detalle por id de: " + e.getMessage());
+        }
     }
 }

@@ -2,6 +2,7 @@ package Vista;
 
 import Controllers.ClienteController;
 import Controllers.CrearVentaController;
+import Controllers.HistorialVentasController;
 import Controllers.ProductoController;
 import Controllers.ProveedorController;
 import EstructuraDeDatos.ABB.ArbolProducto;
@@ -10,6 +11,7 @@ import EstructuraDeDatos.Arrays.CarritoDeCompras;
 import EstructuraDeDatos.Arrays.CarritoItem;
 import EstructuraDeDatos.ListaEnlazada.ListaClientes;
 import EstructuraDeDatos.ListaEnlazada.ListaProveedores;
+import EstructuraDeDatos.Pilas.ListaPilaVentas;
 import Modelo.Cliente;
 import Modelo.ClienteDAO;
 import Modelo.Config;
@@ -21,6 +23,7 @@ import Modelo.ProveedorDAO;
 import Modelo.Venta;
 import Modelo.VentaDAO;
 import Modelo.Sesion;
+import Utilidades.BoletaPDF;
 import Utilidades.Colors;
 import java.awt.Desktop;
 import java.io.File;
@@ -62,6 +65,7 @@ public final class Home extends javax.swing.JFrame {
     private ClienteController clienteController;
     private ProductoController productoController;
     private ProveedorController proveedorController;
+    private HistorialVentasController historialVentasController;
 
     private JButton[] opcionesDeClientes;
     private JButton[] opcionesDeProductos;
@@ -100,7 +104,6 @@ public final class Home extends javax.swing.JFrame {
         opcionesDeProveedores = new JButton[]{btnBuscarProveedorEnProveedores, btnAgregarProveedor, btnActualizarProveedor, btnEliminarProveedor};
 
         cargarOpcionesDeOrdenamientoABB();
-        txtIdVenta.setVisible(false);
 
         AutoCompleteDecorator.decorate(cbxProveedorProducto);
 
@@ -305,25 +308,11 @@ public final class Home extends javax.swing.JFrame {
         }
     }
 
-    public void ListarVentas() {
-        List<Venta> ListarVenta = vDao.obtenerVentas();
-        modelo = (DefaultTableModel) TableVentas.getModel();
-        Object[] ob = new Object[4];
-        for (int i = 0; i < ListarVenta.size(); i++) {
-            ob[0] = ListarVenta.get(i).getId();
-            ob[1] = ListarVenta.get(i).getCliente();
-            ob[2] = ListarVenta.get(i).getVendedor();
-            ob[3] = ListarVenta.get(i).getTotal();
-            modelo.addRow(ob);
-        }
-        TableVentas.setModel(modelo);
-    }
-
-    public void LimpiarTable() {
-        for (int i = 0; i < modelo.getRowCount(); i++) {
-            modelo.removeRow(i);
-            i = i - 1;
-        }
+    //FUNCIONES DEL MODULO DE HISTORIAL DE VENTAS
+    public void actualizarTablaDeVentas(ListaPilaVentas lpVentas) {
+        DefaultTableModel modelo = (DefaultTableModel) tbVentas.getModel();
+        modelo.setRowCount(0);
+        lpVentas.recorrerATabla(modelo);
     }
 
     /**
@@ -438,9 +427,9 @@ public final class Home extends javax.swing.JFrame {
         cbxOrdenABB = new javax.swing.JComboBox<>();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        TableVentas = new javax.swing.JTable();
-        btnPdfVentas = new javax.swing.JButton();
-        txtIdVenta = new javax.swing.JTextField();
+        tbVentas = new javax.swing.JTable();
+        btnEliminarUltimaVenta = new javax.swing.JButton();
+        btnAbrirPDFDeSeleccionado = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         btnNuevaVenta = new javax.swing.JButton();
         btnClientes = new javax.swing.JButton();
@@ -449,7 +438,7 @@ public final class Home extends javax.swing.JFrame {
         labelVendedor = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnProveedor1 = new javax.swing.JButton();
+        btnHistorialDeVentas = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         btnRegistrar1 = new javax.swing.JButton();
         jLayeredPane2 = new javax.swing.JLayeredPane();
@@ -1598,32 +1587,45 @@ public final class Home extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("4", jPanel5);
 
-        TableVentas.setModel(new javax.swing.table.DefaultTableModel(
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+
+        tbVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "CLIENTE", "VENDEDOR", "TOTAL"
+                "ID", "CLIENTE", "VENDEDOR", "FECHA", "TOTAL"
             }
         ));
-        TableVentas.addMouseListener(new java.awt.event.MouseAdapter() {
+        tbVentas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TableVentasMouseClicked(evt);
+                tbVentasMouseClicked(evt);
             }
         });
-        jScrollPane5.setViewportView(TableVentas);
-        if (TableVentas.getColumnModel().getColumnCount() > 0) {
-            TableVentas.getColumnModel().getColumn(0).setPreferredWidth(20);
-            TableVentas.getColumnModel().getColumn(1).setPreferredWidth(60);
-            TableVentas.getColumnModel().getColumn(2).setPreferredWidth(60);
-            TableVentas.getColumnModel().getColumn(3).setPreferredWidth(60);
+        jScrollPane5.setViewportView(tbVentas);
+        if (tbVentas.getColumnModel().getColumnCount() > 0) {
+            tbVentas.getColumnModel().getColumn(0).setPreferredWidth(20);
+            tbVentas.getColumnModel().getColumn(1).setPreferredWidth(60);
+            tbVentas.getColumnModel().getColumn(2).setPreferredWidth(60);
+            tbVentas.getColumnModel().getColumn(4).setPreferredWidth(60);
         }
 
-        btnPdfVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pdf.png"))); // NOI18N
-        btnPdfVentas.setText("Archivo PDF");
-        btnPdfVentas.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarUltimaVenta.setBackground(new java.awt.Color(3, 166, 161));
+        btnEliminarUltimaVenta.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnEliminarUltimaVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar.png"))); // NOI18N
+        btnEliminarUltimaVenta.setText("Eliminar Ultima Venta");
+        btnEliminarUltimaVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPdfVentasActionPerformed(evt);
+                btnEliminarUltimaVentaActionPerformed(evt);
+            }
+        });
+
+        btnAbrirPDFDeSeleccionado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAbrirPDFDeSeleccionado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pdf.png"))); // NOI18N
+        btnAbrirPDFDeSeleccionado.setText("Abrir PDF de selccionado ");
+        btnAbrirPDFDeSeleccionado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAbrirPDFDeSeleccionadoActionPerformed(evt);
             }
         });
 
@@ -1631,26 +1633,33 @@ public final class Home extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+            .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap(51, Short.MAX_VALUE)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(btnPdfVentas)
-                        .addGap(34, 34, 34)
-                        .addComponent(txtIdVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 814, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 814, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(btnEliminarUltimaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                    .addContainerGap(643, Short.MAX_VALUE)
+                    .addComponent(btnAbrirPDFDeSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(52, 52, 52)))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPdfVentas)
-                    .addComponent(txtIdVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(82, 82, 82)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(278, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(btnEliminarUltimaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(191, Short.MAX_VALUE))
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                    .addContainerGap(350, Short.MAX_VALUE)
+                    .addComponent(btnAbrirPDFDeSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(198, 198, 198)))
         );
 
         jTabbedPane1.addTab("5", jPanel6);
@@ -1713,14 +1722,14 @@ public final class Home extends javax.swing.JFrame {
         jLabel2.setForeground(java.awt.Color.darkGray);
         jLabel2.setText("Edder J. Ramos");
 
-        btnProveedor1.setBackground(new java.awt.Color(246, 244, 242));
-        btnProveedor1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnProveedor1.setForeground(java.awt.Color.black);
-        btnProveedor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/historial_de_ventas.png"))); // NOI18N
-        btnProveedor1.setText("Historial de Ventas");
-        btnProveedor1.addActionListener(new java.awt.event.ActionListener() {
+        btnHistorialDeVentas.setBackground(new java.awt.Color(246, 244, 242));
+        btnHistorialDeVentas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnHistorialDeVentas.setForeground(java.awt.Color.black);
+        btnHistorialDeVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/historial_de_ventas.png"))); // NOI18N
+        btnHistorialDeVentas.setText("Historial de Ventas");
+        btnHistorialDeVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProveedor1ActionPerformed(evt);
+                btnHistorialDeVentasActionPerformed(evt);
             }
         });
 
@@ -1740,7 +1749,7 @@ public final class Home extends javax.swing.JFrame {
                                 .addComponent(btnNuevaVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnProveedor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnHistorialDeVentas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnProductos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
@@ -1762,7 +1771,7 @@ public final class Home extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(btnProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnProveedor1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnHistorialDeVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -1873,20 +1882,13 @@ public final class Home extends javax.swing.JFrame {
         addUserView.setVisible(true);
     }//GEN-LAST:event_btnRegistrar1ActionPerformed
 
-    private void btnPdfVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPdfVentasActionPerformed
-        try {
-            int id = Integer.parseInt(txtIdVenta.getText());
-            File file = new File("src/pdf/venta" + id + ".pdf");
-            Desktop.getDesktop().open(file);
-        } catch (IOException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnPdfVentasActionPerformed
+    private void btnEliminarUltimaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUltimaVentaActionPerformed
+        historialVentasController.enEliminarUltimaVenta();
+    }//GEN-LAST:event_btnEliminarUltimaVentaActionPerformed
 
-    private void TableVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableVentasMouseClicked
-        int fila = TableVentas.rowAtPoint(evt.getPoint());
-        txtIdVenta.setText(TableVentas.getValueAt(fila, 0).toString());
-    }//GEN-LAST:event_TableVentasMouseClicked
+    private void tbVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbVentasMouseClicked
+
+    }//GEN-LAST:event_tbVentasMouseClicked
 
     private void btnBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoActionPerformed
 
@@ -2129,10 +2131,10 @@ public final class Home extends javax.swing.JFrame {
         productoController.enOrdenamientoCambio();
     }//GEN-LAST:event_cbxOrdenABBItemStateChanged
 
-    private void btnProveedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProveedor1ActionPerformed
-
+    private void btnHistorialDeVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialDeVentasActionPerformed
+        historialVentasController = new HistorialVentasController(this);
         jTabbedPane1.setSelectedIndex(4);
-    }//GEN-LAST:event_btnProveedor1ActionPerformed
+    }//GEN-LAST:event_btnHistorialDeVentasActionPerformed
 
     private int tryToGetIdFromProviderTable() {
         try {
@@ -2223,6 +2225,25 @@ public final class Home extends javax.swing.JFrame {
         seleccionarBotonPorIndice(3, opcionesDeProveedores);
     }//GEN-LAST:event_btnEliminarProveedorActionPerformed
 
+    private void btnAbrirPDFDeSeleccionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirPDFDeSeleccionadoActionPerformed
+        try {
+
+            int selectedRow = tbVentas.getSelectedRow();
+            if (selectedRow == -1) {
+                mostrarMensaje("No hay fila seleccionada");
+                return;
+            }
+
+            int id = (int) tbVentas.getValueAt(selectedRow, 0);
+            String fecha = String.valueOf(tbVentas.getValueAt(selectedRow, 3));
+            String fileName = BoletaPDF.buildFileName(id, fecha);
+            File file = new File("src/pdf/" + fileName);
+            Desktop.getDesktop().open(file);
+        } catch (Exception ex) {
+            mostrarMensaje("Algo salio mal al abrir el archivo");
+        }
+    }//GEN-LAST:event_btnAbrirPDFDeSeleccionadoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2262,7 +2283,7 @@ public final class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable TableVentas;
+    private javax.swing.JButton btnAbrirPDFDeSeleccionado;
     private javax.swing.JButton btnAceptarEnClientes;
     private javax.swing.JButton btnAceptarEnProductos;
     private javax.swing.JButton btnAceptarEnProveedores;
@@ -2286,12 +2307,12 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminarProducto;
     private javax.swing.JButton btnEliminarProveedor;
     private javax.swing.JButton btnEliminarSeleccionVenta;
+    private javax.swing.JButton btnEliminarUltimaVenta;
     private javax.swing.JButton btnGenerarVenta;
+    private javax.swing.JButton btnHistorialDeVentas;
     private javax.swing.JButton btnNuevaVenta;
-    private javax.swing.JButton btnPdfVentas;
     private javax.swing.JButton btnProductos;
     private javax.swing.JButton btnProveedor;
-    private javax.swing.JButton btnProveedor1;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnRegistrar1;
     private javax.swing.JComboBox<String> cbxOrdenABB;
@@ -2360,6 +2381,7 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JTable tbClientes;
     private javax.swing.JTable tbProductos;
     private javax.swing.JTable tbProveedores;
+    private javax.swing.JTable tbVentas;
     private javax.swing.JTextField txtCantProducto;
     private javax.swing.JTextField txtCantidadVenta;
     private javax.swing.JLabel txtCarritoTotal;
@@ -2371,7 +2393,6 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JTextField txtDireccionProveedor;
     private javax.swing.JTextField txtDniCliente;
     private javax.swing.JTextField txtDniORucClienteEnVenta;
-    private javax.swing.JTextField txtIdVenta;
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JLabel txtNombreClienteVenta;
     private javax.swing.JTextField txtNombreProveedor;

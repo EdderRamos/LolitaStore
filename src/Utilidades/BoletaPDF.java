@@ -17,21 +17,26 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
+
 /**
  *
  * @author eramos
  */
 public class BoletaPDF {
 
+    public static String buildFileName(int idBoleta,  String fecha) {
+        return "Venta_V-" + idBoleta  + "_" + fecha + ".pdf";
+    }
+
     //metodo para generar la boleta de venta
     public static void generateBoletaPDF(Boleta boleta) {
         try {
             String nombreCompleto = boleta.getCliente().getNombre();
-           
-            String nombreArchivoPDFVenta = "Venta_V-" + boleta.getVenta().getId()+ "_" + boleta.getCliente().getNombre() + "_" + boleta.getVenta().getFecha() + ".pdf";
+
+            String nombreArchivoPDFVenta = buildFileName(boleta.getVenta().getId(), boleta.getVenta().getFecha());
 
             FileOutputStream archivo;
-            File file = new File("src/pdf/venta" + nombreArchivoPDFVenta);
+            File file = new File("src/pdf/" + nombreArchivoPDFVenta);
             archivo = new FileOutputStream(file);
 
             Document doc = new Document();
@@ -165,7 +170,7 @@ public class BoletaPDF {
             //abrir el documento al ser generado automaticamente
             Desktop.getDesktop().open(file);
 
-        } catch (Exception e ) {
+        } catch (Exception e) {
             System.out.println("Error en: " + e);
         }
     }
