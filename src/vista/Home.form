@@ -62,7 +62,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="btnRegistrar" min="-2" pref="54" max="-2" attributes="0"/>
+                          <Component id="btnCerrarSesion" min="-2" pref="54" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="btnRegistrar1" min="-2" pref="150" max="-2" attributes="0"/>
                       </Group>
@@ -89,7 +89,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnRegistrar1" min="-2" pref="47" max="-2" attributes="0"/>
-                      <Component id="btnRegistrar" min="-2" pref="47" max="-2" attributes="0"/>
+                      <Component id="btnCerrarSesion" min="-2" pref="47" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="75" max="32767" attributes="0"/>
               </Group>
@@ -187,7 +187,7 @@
                               <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                                  <Component id="jLabel40" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="txtVentaDelMes" min="-2" pref="39" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="31" max="32767" attributes="0"/>
@@ -203,7 +203,7 @@
                               <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtVentaDelMes" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -228,7 +228,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel40">
+                <Component class="javax.swing.JLabel" name="txtVentaDelMes">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="24" style="1"/>
@@ -265,7 +265,7 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jLabel41" min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="VentaEnLaSemana" min="-2" pref="39" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -279,7 +279,7 @@
                               <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="18" max="32767" attributes="0"/>
-                          <Component id="jLabel41" min="-2" max="-2" attributes="0"/>
+                          <Component id="VentaEnLaSemana" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -304,7 +304,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel41">
+                <Component class="javax.swing.JLabel" name="VentaEnLaSemana">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="24" style="1"/>
@@ -344,7 +344,7 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jLabel42" min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="VentasDeHoy" min="-2" pref="39" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -358,7 +358,7 @@
                               <Component id="jLabel36" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
+                          <Component id="VentasDeHoy" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -383,7 +383,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel42">
+                <Component class="javax.swing.JLabel" name="VentasDeHoy">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="24" style="1"/>
@@ -2392,7 +2392,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="btnRegistrar">
+        <Component class="javax.swing.JButton" name="btnCerrarSesion">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f7" green="f6" red="ed" type="rgb"/>
@@ -2405,7 +2405,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCerrarSesionActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnRegistrar1">

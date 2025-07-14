@@ -91,7 +91,7 @@ public final class Home extends javax.swing.JFrame {
             btnEliminarProducto.setEnabled(false);
             btnAgregarProducto.setEnabled(false);
             btnProveedor.setEnabled(false);
-            btnRegistrar.setEnabled(false);
+            btnCerrarSesion.setEnabled(false);
         }
     }
 
@@ -303,15 +303,15 @@ public final class Home extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
+        txtVentaDelMes = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
+        VentaEnLaSemana = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
+        VentasDeHoy = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jLabel44 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -414,7 +414,7 @@ public final class Home extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         txtUserName = new javax.swing.JLabel();
         btnHistorialDeVentas = new javax.swing.JButton();
-        btnRegistrar = new javax.swing.JButton();
+        btnCerrarSesion = new javax.swing.JButton();
         btnRegistrar1 = new javax.swing.JButton();
         jLayeredPane2 = new javax.swing.JLayeredPane();
 
@@ -442,9 +442,9 @@ public final class Home extends javax.swing.JFrame {
 
         jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/tienda.png"))); // NOI18N
 
-        jLabel40.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel40.setForeground(java.awt.Color.darkGray);
-        jLabel40.setText("24");
+        txtVentaDelMes.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtVentaDelMes.setForeground(java.awt.Color.darkGray);
+        txtVentaDelMes.setText("24");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -458,7 +458,7 @@ public final class Home extends javax.swing.JFrame {
                     .addComponent(jLabel34)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(13, 13, 13)
-                        .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtVentaDelMes, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
@@ -469,7 +469,7 @@ public final class Home extends javax.swing.JFrame {
                     .addComponent(jLabel37)
                     .addComponent(jLabel34))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel40)
+                .addComponent(txtVentaDelMes)
                 .addGap(22, 22, 22))
         );
 
@@ -482,9 +482,9 @@ public final class Home extends javax.swing.JFrame {
 
         jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/calendario_semana.png"))); // NOI18N
 
-        jLabel41.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel41.setForeground(java.awt.Color.darkGray);
-        jLabel41.setText("24");
+        VentaEnLaSemana.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        VentaEnLaSemana.setForeground(java.awt.Color.darkGray);
+        VentaEnLaSemana.setText("24");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -498,7 +498,7 @@ public final class Home extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(VentaEnLaSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(73, 73, 73))
         );
         jPanel10Layout.setVerticalGroup(
@@ -509,7 +509,7 @@ public final class Home extends javax.swing.JFrame {
                     .addComponent(jLabel38)
                     .addComponent(jLabel35))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jLabel41)
+                .addComponent(VentaEnLaSemana)
                 .addGap(22, 22, 22))
         );
 
@@ -523,9 +523,9 @@ public final class Home extends javax.swing.JFrame {
 
         jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/comprador.png"))); // NOI18N
 
-        jLabel42.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel42.setForeground(java.awt.Color.darkGray);
-        jLabel42.setText("24");
+        VentasDeHoy.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        VentasDeHoy.setForeground(java.awt.Color.darkGray);
+        VentasDeHoy.setText("24");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -539,7 +539,7 @@ public final class Home extends javax.swing.JFrame {
                 .addContainerGap(27, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(VentasDeHoy, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
         );
         jPanel11Layout.setVerticalGroup(
@@ -550,7 +550,7 @@ public final class Home extends javax.swing.JFrame {
                     .addComponent(jLabel39)
                     .addComponent(jLabel36))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel42)
+                .addComponent(VentasDeHoy)
                 .addGap(19, 19, 19))
         );
 
@@ -1750,12 +1750,12 @@ public final class Home extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        btnRegistrar.setBackground(new java.awt.Color(237, 246, 247));
-        btnRegistrar.setForeground(java.awt.Color.black);
-        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cerrar_sesion.png"))); // NOI18N
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        btnCerrarSesion.setBackground(new java.awt.Color(237, 246, 247));
+        btnCerrarSesion.setForeground(java.awt.Color.black);
+        btnCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cerrar_sesion.png"))); // NOI18N
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarActionPerformed(evt);
+                btnCerrarSesionActionPerformed(evt);
             }
         });
 
@@ -1785,7 +1785,7 @@ public final class Home extends javax.swing.JFrame {
                             .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
-                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
                         .addComponent(btnRegistrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(62, Short.MAX_VALUE))
@@ -1805,7 +1805,7 @@ public final class Home extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRegistrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
 
@@ -1847,10 +1847,11 @@ public final class Home extends javax.swing.JFrame {
         crearVentaController.refreshListaDeProductos();
     }//GEN-LAST:event_btnNuevaVentaActionPerformed
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        AddUser reg = new AddUser();
-        reg.setVisible(true);
-    }//GEN-LAST:event_btnRegistrarActionPerformed
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+        Login login = new Login();
+        login.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     private void btnRegistrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar1ActionPerformed
         AddUser addUserView = new AddUser();
@@ -2258,6 +2259,8 @@ public final class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel VentaEnLaSemana;
+    private javax.swing.JLabel VentasDeHoy;
     private javax.swing.JButton btnAbrirPDFDeSeleccionado;
     private javax.swing.JButton btnAceptarEnClientes;
     private javax.swing.JButton btnAceptarEnProductos;
@@ -2277,6 +2280,7 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JButton btnCancelarEnClientes;
     private javax.swing.JButton btnCancelarEnProductos;
     private javax.swing.JButton btnCancelarEnProveedores;
+    private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnEliminarProducto;
@@ -2288,7 +2292,6 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JButton btnNuevaVenta;
     private javax.swing.JButton btnProductos;
     private javax.swing.JButton btnProveedor;
-    private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnRegistrar1;
     private javax.swing.JComboBox<String> cbxOrdenABB;
     private javax.swing.JComboBox<String> cbxProveedorProducto;
@@ -2318,9 +2321,6 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel5;
@@ -2378,6 +2378,7 @@ public final class Home extends javax.swing.JFrame {
     private javax.swing.JLabel txtTelefonoClienteVenta;
     private javax.swing.JTextField txtTelefonoProveedor;
     private javax.swing.JLabel txtUserName;
+    private javax.swing.JLabel txtVentaDelMes;
     // End of variables declaration//GEN-END:variables
 
 }
