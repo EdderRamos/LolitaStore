@@ -1,6 +1,6 @@
 package Modelo;
 
-import baseDeDatos.ConexionDB;
+import ConexionBaseDeDatos.ConexionDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

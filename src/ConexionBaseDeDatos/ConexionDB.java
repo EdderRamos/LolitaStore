@@ -1,5 +1,4 @@
-
-package baseDeDatos;
+package ConexionBaseDeDatos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,8 +17,6 @@ public class ConexionDB {
     private static ConexionDB instancia = null;
 
     //THIS CLASS USES THE SINGLETON PATTERN  TO MANIPULATE DATA IN A MYSQL DATABASE  
-    
-    
     public static ConexionDB getInstancia() {
         if (instancia == null) {
             instancia = new ConexionDB();
@@ -37,7 +34,7 @@ public class ConexionDB {
             con = DriverManager.getConnection(URL, USER, PASSWORD);
             System.out.println("conexion exitosa");
         } catch (Exception e) {
-            System.out.println("conexion fallida:  "+ e);
+            System.out.println("conexion fallida:  " + e);
         }
     }
 

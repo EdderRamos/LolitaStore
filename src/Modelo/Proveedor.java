@@ -1,14 +1,15 @@
 package Modelo;
 
 public class Proveedor {
+
     private int id;
     private int ruc;
     private String nombre;
     private int telefono;
     private String direccion;
-    
-    public Proveedor(){
-        
+
+    public Proveedor() {
+
     }
 
     public Proveedor(int id, int ruc, String nombre, int telefono, String direccion, String razon) {
@@ -58,5 +59,10 @@ public class Proveedor {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-    
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
+
 }

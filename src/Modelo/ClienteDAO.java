@@ -1,7 +1,7 @@
 package Modelo;
 
 import EstructuraDeDatos.ListaEnlazada.ListaClientes;
-import baseDeDatos.ConexionDB;
+import ConexionBaseDeDatos.ConexionDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

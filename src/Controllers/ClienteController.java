@@ -32,7 +32,7 @@ public class ClienteController {
         for (Cliente cliente : clienteDao.obternerClientes()) {
             lesClientes.agregar(cliente);
         }
-        vista.actualizarListaDeClientes(lesClientes);
+        vista.actualizarTablaDeClientes(lesClientes);
     }
 
     public void enActualizarCliente(Cliente cliente) {
@@ -53,7 +53,7 @@ public class ClienteController {
 
             if (actualizadoEnLista) {
                 vista.mostrarMensaje("Datos del cliente actualizados");
-                vista.actualizarListaDeClientes(lesClientes);
+                vista.actualizarTablaDeClientes(lesClientes);
                 vista.actualizarImputsEnClientes(null);
             } else {
                 vista.mostrarMensaje("Cliente no encontrado en la lista enlazada.");
@@ -82,7 +82,7 @@ public class ClienteController {
 
         if (eliminadoEnLes) {
             vista.mostrarMensaje("Cliente eliminado exitosamente");
-            vista.actualizarListaDeClientes(lesClientes);
+            vista.actualizarTablaDeClientes(lesClientes);
             vista.actualizarImputsEnClientes(null);
         } else {
             vista.mostrarMensaje("Algo salio mal!");
@@ -101,7 +101,7 @@ public class ClienteController {
             cliente.setId(id);
             lesClientes.agregar(cliente);
             vista.mostrarMensaje("Cliente registrado exitosamente");
-            vista.actualizarListaDeClientes(lesClientes);
+            vista.actualizarTablaDeClientes(lesClientes);
             vista.actualizarImputsEnClientes(null);
         } else {
             vista.mostrarMensaje("Hubo un error al registrar el cliente en la base de datos.");
@@ -118,7 +118,7 @@ public class ClienteController {
         Cliente cliente = lesClientes.buscarPorDni(dni);
 
         if (cliente != null) {
-            vista.actualizarListaDeClientes(lesClientes);
+            vista.actualizarTablaDeClientes(lesClientes);
             vista.actualizarImputsEnClientes(cliente);
         } else {
             vista.mostrarMensaje("Cliente no encontrado");

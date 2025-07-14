@@ -5,6 +5,7 @@
 package EstructuraDeDatos.ABB;
 
 import Modelo.Producto;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,10 +16,10 @@ public class ArbolProducto {
     private NodoProducto raiz;
 
     public void insertar(Producto producto) {
-       raiz = insertar(raiz, producto);
+        raiz = insertar(raiz, producto);
     }
 
-    public NodoProducto insertar(NodoProducto nodo, Producto producto) {
+    private NodoProducto insertar(NodoProducto nodo, Producto producto) {
         if (nodo == null) {
             return new NodoProducto(producto);
         }
@@ -33,7 +34,7 @@ public class ArbolProducto {
     }
 
     public Producto buscar(String codigo) {
-         return buscar(raiz, codigo);
+        return buscar(raiz, codigo);
     }
 
     public Producto buscar(NodoProducto nodo, String codigo) {
@@ -63,4 +64,105 @@ public class ArbolProducto {
             inOrden(nodo.getDer());
         }
     }
+
+    public boolean actualizar(Producto producto) {
+        Producto productoEnABB = buscar(producto.getCodigo());
+        if (productoEnABB != null) {
+            productoEnABB.setNombre(producto.getNombre());
+            productoEnABB.setPrecio(producto.getPrecio());
+            productoEnABB.setCodigo(producto.getCodigo());
+            productoEnABB.setProveedor(producto.getProveedor());
+            return true;
+        }
+        return false;
+    }
+
+    public boolean eliminar(String codigo) {
+        if (raiz == null) {
+            return false;
+        }
+
+        raiz = eliminar(raiz, codigo);
+        return raiz != null;
+    }
+
+    private NodoProducto eliminar(NodoProducto raiz, String codigo) {
+        if (raiz == null) {
+            return raiz;
+        }
+
+        if (codigo.compareTo(raiz.getProducto().getCodigo()) < 0) {
+            raiz.setIzq(eliminar(raiz.getIzq(), codigo));
+        } else if (codigo.compareTo(raiz.getProducto().getCodigo()) > 0) {
+            raiz.setDer(eliminar(raiz.getDer(), codigo));
+        } else {
+            if (raiz.getIzq() == null) {
+                return raiz.getDer();
+            } else if (raiz.getDer() == null) {
+                return raiz.getIzq();
+            }
+            raiz.setProducto(obtenerMinimo(raiz.getDer()).getProducto());
+            raiz.setDer(eliminar(raiz.getDer(), raiz.getProducto().getCodigo()));
+        }
+        return raiz;
+    }
+
+    private NodoProducto obtenerMinimo(NodoProducto raiz) {
+        NodoProducto actual = raiz;
+        while (actual.getIzq() != null) {
+            actual = actual.getIzq();
+        }
+        return actual;
+    }
+
+    public void mostrarOrdenado(String option, DefaultTableModel modelo) {
+        if (option.equals(OrdenamientoABB.PREORDEN.getNombre())) {
+            preOrdenParaTabla(raiz, modelo);
+        } else if (option.equals(OrdenamientoABB.INORDEN.getNombre())) {
+            inOrdenParaTabla(raiz, modelo);
+        } else if (option.equals(OrdenamientoABB.POSTORDEN.getNombre())) {
+            postOrdenParaTabla(raiz, modelo);
+        } else {
+            inOrdenParaTabla(raiz, modelo);
+        }
+    }
+
+    //ascendente
+    private void inOrdenParaTabla(NodoProducto nodo, DefaultTableModel model) {
+        if (nodo != null) {
+            inOrdenParaTabla(nodo.getIzq(), model);
+            cargarObjeto(nodo.getProducto(), model);
+            inOrdenParaTabla(nodo.getDer(), model);
+        }
+    }
+
+    //primero la raiz
+    private void preOrdenParaTabla(NodoProducto nodo, DefaultTableModel model) {
+        if (nodo != null) {
+            cargarObjeto(nodo.getProducto(), model);
+            preOrdenParaTabla(nodo.getIzq(), model);
+            preOrdenParaTabla(nodo.getDer(), model);
+        }
+    }
+
+    //descendente
+    private void postOrdenParaTabla(NodoProducto nodo, DefaultTableModel model) {
+        if (nodo != null) {
+            postOrdenParaTabla(nodo.getIzq(), model);
+            postOrdenParaTabla(nodo.getDer(), model);
+            cargarObjeto(nodo.getProducto(), model);
+        }
+    }
+
+    private void cargarObjeto(Producto p, DefaultTableModel modelo) {
+        Object[] fila = new Object[6];
+        fila[0] = p.getId();
+        fila[1] = p.getCodigo();
+        fila[2] = p.getNombre();
+        fila[3] = p.getProveedor();
+        fila[4] = p.getStock();
+        fila[5] = p.getPrecio();
+        modelo.addRow(fila);
+    }
+
 }
