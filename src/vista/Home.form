@@ -2219,7 +2219,7 @@
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                               <Component id="txtUserName" min="-2" pref="115" max="-2" attributes="0"/>
                               <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                  <Component id="labelVendedor" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtMenu" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="btnNuevaVenta" alignment="1" max="32767" attributes="0"/>
                                       <Component id="btnClientes" alignment="1" max="32767" attributes="0"/>
@@ -2242,7 +2242,7 @@
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="txtUserName" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="labelVendedor" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtMenu" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="btnNuevaVenta" min="-2" pref="65" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -2339,7 +2339,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProductosActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="labelVendedor">
+            <Component class="javax.swing.JLabel" name="txtMenu">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="12" style="1"/>
