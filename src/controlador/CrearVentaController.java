@@ -7,6 +7,7 @@ package controlador;
 import EstructuraDeDatos.ABB.ArbolProducto;
 import EstructuraDeDatos.Arrays.CarritoDeCompras;
 import EstructuraDeDatos.Arrays.CarritoItem;
+import EstructuraDeDatos.Colas.ListaColaBoleta;
 import modelo.Boleta;
 import modelo.Cliente;
 import modelo.ClienteDAO;
@@ -34,9 +35,11 @@ public class CrearVentaController {
 
     private ArbolProducto arbolProductos;
     private CarritoDeCompras carrito;
+    private ListaColaBoleta colaBoletas; 
 
     public CrearVentaController(Home vista) {
         this.vista = vista;
+        this.colaBoletas = new ListaColaBoleta();
 
         productosDao = new ProductosDAO();
         ventasDao = new VentaDAO();
@@ -162,12 +165,13 @@ public class CrearVentaController {
         vista.reiniciarRealizarCompra();
         carrito.limpiar();
 
-        //crear pdf
+        //agregamos a la cola la generacion de PDF 
         Boleta boleta = new Boleta();
         boleta.setCliente(cliente);
         boleta.setDetalles(detalles);
         boleta.setVenta(v);
-        BoletaPDF.generateBoletaPDF(boleta);
+        colaBoletas.agregar(boleta);
+        
         enActualizarVentasRealizadas();
     }
 

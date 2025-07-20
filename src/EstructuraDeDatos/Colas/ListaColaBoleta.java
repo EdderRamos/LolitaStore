@@ -1,15 +1,14 @@
 package EstructuraDeDatos.Colas;
 
-import modelo.Venta;
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+import modelo.Boleta;
+import util.BoletaPDF;
 
-public class ListaColaVentas {
+public class ListaColaBoleta {
 
-    private NodoVenta inicio;
-    private NodoVenta fin;
+    private NodoBoleta inicio;
+    private NodoBoleta fin;
 
-    public ListaColaVentas() {
+    public ListaColaBoleta() {
         this.inicio = null;
         this.fin = null;
     }
@@ -18,7 +17,7 @@ public class ListaColaVentas {
         return inicio == null;
     }
 
-    public NodoVenta actual() {
+    public NodoBoleta actual() {
         if (esVacio()) {
             System.out.println("La cola está vacía");
             return null;
@@ -35,21 +34,23 @@ public class ListaColaVentas {
         if (inicio == fin) {
             inicio = fin = null;
         } else {
-            NodoVenta aux = inicio.getSig();
+            NodoBoleta aux = inicio.getSig();
             inicio = aux;
         }
         System.out.println("Elemento eliminado");
     }
 
-    public void agregar(Venta dato) {
-        NodoVenta nuevo = new NodoVenta(dato);
+    public void agregar(Boleta dato) {
+        NodoBoleta nuevo = new NodoBoleta(dato);
         if (esVacio()) {
             inicio = fin = nuevo;
         } else {
             fin.setSig(nuevo);
             fin = nuevo;
         }
+        
         System.out.println("Elemento agregado: " + dato);
+        procesarPrimerElemento();
     }
 
     public void recorrer() {
@@ -57,7 +58,7 @@ public class ListaColaVentas {
             System.out.println("La lista esta vacia");
             return;
         }
-        NodoVenta aux = inicio;
+        NodoBoleta  aux = inicio;
         while (aux != null) {
             System.out.print(aux.getDato() + "-->");
             aux = aux.getSig();
@@ -65,28 +66,13 @@ public class ListaColaVentas {
         System.out.println("");
 
     }
-
-    public void recorrerAdelante(DefaultTableModel tblModelo) {
-        if (esVacio()) {
-            JOptionPane.showMessageDialog(null, "No hay elementos en la lista");
-            return;
-        }
-
-        NodoVenta aux = inicio;
-
-        while (aux != null) {
-            /*
-            tblModelo.addRow(new Object[]{
-                aux.getDato().getMarca(),
-                aux.getDato().getModelo(),
-                aux.getDato().getRam(),
-                aux.getDato().getAlmacenamiento(),
-                aux.getDato().getPrecio()
-            });
-            aux = aux.getSig();
-            */
-        }
-
+    
+   // fifo // el primero que ingreso tiene  que generar el boleta pdf
+    public void procesarPrimerElemento(){
+        Boleta boleta = inicio.getDato();
+        eliminar();
+        System.out.println("Generando pdf :D  : "+ BoletaPDF.buildFileName(boleta.getVenta().getId(), boleta.getVenta().getFecha()));
+        BoletaPDF.generateBoletaPDF(boleta);    
     }
 
 }

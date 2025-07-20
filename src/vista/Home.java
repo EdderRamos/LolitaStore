@@ -44,11 +44,15 @@ public final class Home extends javax.swing.JFrame {
     private JButton[] opcionesDeProductos;
     private JButton[] opcionesDeProveedores;
 
+    // matriz de privilegios roles x privilegios 
+    // solo 2 roles: 0 = administrador, 1 = asistente
+    // privilegios: 0 = Buscar, 1 = Agregar, 2 = Actualizar, 3 = Eliminar
+    private boolean[][] privilegiosRoles;
     private Sesion sesion;
 
     public Home() {
         Sesion demo = new Sesion();
-        demo.setRol("Administrador");
+        demo.setRol("Asistente");
         demo.setId(1);
         demo.setContra("1234");
         demo.setNombre("prueba");
@@ -80,19 +84,57 @@ public final class Home extends javax.swing.JFrame {
 
         AutoCompleteDecorator.decorate(cbxProveedorProducto);
         //configure user options and user data
+        configurarPrivilegiosRoles(); //configuramos lo que puede y no puede cada roll
         configureUserOption();
 
+    }
+
+    public void configurarPrivilegiosRoles() {
+        //0 = Administrador, 1 = Asistente
+        //0 = Buscar, 1 = Agregar, 2 = Actualizar, 3 = Eliminar
+        privilegiosRoles = new boolean[2][4];
+
+        // privilegios para el admin
+        privilegiosRoles[0][0] = true;
+        privilegiosRoles[0][1] = true;
+        privilegiosRoles[0][2] = true;
+        privilegiosRoles[0][3] = true;
+
+        // privilegios para el asistente
+        privilegiosRoles[1][0] = true; 
+        privilegiosRoles[1][1] = false;
+        privilegiosRoles[1][2] = false; 
+        privilegiosRoles[1][3] = false; 
     }
 
     public void configureUserOption() {
         txtUserName.setText(sesion.getNombre());
         if (sesion.getRol().equals("Asistente")) {
-            btnActualizarProducto.setEnabled(false);
-            btnEliminarProducto.setEnabled(false);
-            btnAgregarProducto.setEnabled(false);
-            btnProveedor.setEnabled(false);
-            btnCerrarSesion.setEnabled(false);
+            ajustarPrivilegios(1); // Asistente: solo tiene el privilegio de "Buscar"
+        } else if (sesion.getRol().equals("Administrador")) {
+            ajustarPrivilegios(0); // Administrador: todos los privilegios
         }
+    }
+
+    // Deshabilita los botones según los privilegios del rol usando la matriz 2D
+    public void ajustarPrivilegios(int rolIndex) {
+        // Clientes
+        btnBuscarClienteEnClientes.setEnabled(privilegiosRoles[rolIndex][0]);
+        btnAgregarCliente.setEnabled(privilegiosRoles[rolIndex][1]);
+        btnActualizarCliente.setEnabled(privilegiosRoles[rolIndex][2]);
+        btnEliminarCliente.setEnabled(privilegiosRoles[rolIndex][3]);
+
+        // Productos
+        btnBuscarProducto.setEnabled(privilegiosRoles[rolIndex][0]);
+        btnAgregarProducto.setEnabled(privilegiosRoles[rolIndex][1]);
+        btnActualizarProducto.setEnabled(privilegiosRoles[rolIndex][2]);
+        btnEliminarProducto.setEnabled(privilegiosRoles[rolIndex][3]);
+
+        // Proveedores
+        btnBuscarProveedorEnProveedores.setEnabled(privilegiosRoles[rolIndex][0]);
+        btnAgregarProveedor.setEnabled(privilegiosRoles[rolIndex][1]);
+        btnActualizarProveedor.setEnabled(privilegiosRoles[rolIndex][2]);
+        btnEliminarProveedor.setEnabled(privilegiosRoles[rolIndex][3]);
     }
 
     public void mostrarMensaje(String mensaje) {
