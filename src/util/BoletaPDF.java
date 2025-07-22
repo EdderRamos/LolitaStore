@@ -79,7 +79,7 @@ public class BoletaPDF {
             tablaCliente.setWidthPercentage(100);
             tablaCliente.getDefaultCell().setBorder(0);//quitar bordes
             //tamaño de las celdas
-            float[] ColumnaCliente = new float[]{25f, 45f};
+            float[] ColumnaCliente = new float[]{25f, 45f};// se usa arrays para generar la cantidad de ccolumnas
             tablaCliente.setWidths(ColumnaCliente);
             tablaCliente.setHorizontalAlignment(Element.ALIGN_LEFT);
             PdfPCell cliente1 = new PdfPCell(new Phrase("DNI: " + boleta.getCliente().getDni(), negrita));
