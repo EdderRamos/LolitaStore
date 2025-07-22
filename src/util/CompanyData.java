@@ -12,8 +12,8 @@ public class CompanyData {
 
     public static String RUC = "20563529378";
     public static String NOMBRE = "TIENDA LOLITA";
-    public static String TELEFONO = "987654321";
-    public static String DIRECCION = "Av Simon Bolivar #2324";
+    public static String TELEFONO = "970 575 243";
+    public static String DIRECCION = "Se encuentra en Lima, en el distrito de San Juan de Lurigancho exactamente en Av. Fernando Wiesse 4267, San Juan de Lurigancho 15423";
     public static String RAZON = "El mejor minimarket del Peru : Tienda Lolita!";
 
     public static String toStringData() {
